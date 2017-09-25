@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.songxiaolang.com/"/>
-  <updated>2017-09-25T08:42:10.770Z</updated>
+  <updated>2017-09-25T09:03:34.738Z</updated>
   <id>http://www.songxiaolang.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.songxiaolang.com/2016/09/22/data_exists_special_symbols/"/>
     <id>http://www.songxiaolang.com/2016/09/22/data_exists_special_symbols/</id>
     <published>2016-09-22T05:27:22.000Z</published>
-    <updated>2017-09-25T08:42:10.770Z</updated>
+    <updated>2017-09-25T09:03:34.738Z</updated>
     
     <summary type="html">
     
@@ -32,6 +32,8 @@
     
     
       <category term="Ajax" scheme="http://www.songxiaolang.com/tags/Ajax/"/>
+    
+      <category term="文章" scheme="http://www.songxiaolang.com/tags/%E6%96%87%E7%AB%A0/"/>
     
   </entry>
   
