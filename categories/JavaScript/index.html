@@ -140,6 +140,65 @@
         
         <section class="archives-wrap">
             <div class="archive-year-wrap">
+                <a href="/archives/2018" class="archive-year"><i class="icon fa fa-calendar-o"></i>2018</a>
+            </div>
+            <div class="archives">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2018/02/02/java_execCommand_StreamGobbler/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://www.songxiaolang.com/2018/02/02/java_execCommand_StreamGobbler/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+            </div>
+            <div class="date"><time datetime="2018-02-02T14:12:33.000Z" itemprop="datePublished">2018-02-02</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2018/02/02/java_execCommand_StreamGobbler/">java执行cmd命令是遇到一些特殊字符处理丢失</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            ：当时要执行kettle命令的时候，遇到kettle的命令符号丢失,当时使用的是123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142package com.pactera.common.util;import com.alibaba.fastjson.JSONObject;import org.apache.commons.cli.*;import org.apache.commons.exec.CommandLine;import org.apache.commons.exec.*;import org.junit.Test;import java.io.ByteArrayOutputStream;import java.util.Collection;/** * @author song * @date created in 2018-01-19 18:49 */public class ExecuteShell &#123;    public static JSONObject callCMD(String shellInfo) &#123;        System.out.println("Cmd接收到的命令---"+shellInfo);        JSONObject json = new JSONObject();        String error = "";        int execute = 1;        String out="";        try &#123;            CommandLine commandline = CommandLine.parse(shellInfo);            DefaultExecutor exec = new DefaultExecutor();            exec.setExitValue(0);            ExecuteWatchdog watchdog = new ExecuteWatchdog(600 * 1000);            exec.setWatchdog(watchdog);            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();            ByteArrayOutputStream errorStream = new ByteArrayOutputStream();            PumpStreamHandler streamHandler = new PumpStreamHandler(outputStream, errorStream);            exec.setStreamHandler(streamHandler);            execute = exec.execute(commandline);            out = outputStream.toString("gbk");            error = errorStream.toString("gbk");            System.out.println(out);            System.out.println(error);        &#125; catch (Exception e) &#123;            json.put("statusCode", 1);            json.put("msg", "Failed to call shell's command and the return status's is:1 "+error );        &#125;        json.put("statusCode" , execute);        json.put("msg" , out);        return  json;    &#125;    /**     * 创建commandline对象     *     * @param args     * @return     * @throws ParseException     */    private static CommandLine getCommandLine(String args, Options mergeOptions) throws ParseException &#123;        CommandLineParser parser = new DefaultParser();        HelpFormatter hf = new HelpFormatter();        hf.printHelp(args, "", mergeOptions, "");//        return parser.parse(mergeOptions, new String[]&#123;args&#125;);        return null;    &#125;    /**     * 合并options     *     * @param optionsArgs options项     * @return 合并后的options     */    private static Options mergeOptions(Options... optionsArgs) &#123;        Options allOptions = new Options(); // 合并所有options，如果不合并单独使用，会出现问题        for (Options options : optionsArgs) &#123;            Collection&lt;Option&gt; options1 = options.getOptions();            for (Option option : options1) &#123;                allOptions.addOption(option);            &#125;        &#125;        return allOptions;    &#125;    @Test    public void test() throws ParseException &#123;        // 模拟命令行参数        String args = "sdo";    &#125;  /*  public static void main(String[] args) throws ParseException &#123;        String argss[]=&#123;"-t  1000"&#125;;        //定义        Options options = new Options();        options.addOption("ipconfig", false, "list help");//false代表不强制有        options.addOption("ipconfig", true, "set time on system");        //解析        //1.3.1中已经弃用针对不同格式入参对应的解析器        //CommandLineParser parser = new PosixParser();        CommandLineParser parser = new DefaultParser();        CommandLine cmd = parser.parse(options, args);        //查询交互        //你的程序应当写在这里，从这里启动            String formatstr = "ipconfig";            HelpFormatter hf = new HelpFormatter();            hf.printHelp(formatstr, "", options, "");            return;    &#125;*/    public static void main(String[] args) &#123;        try &#123;            String command = " E:\\tool\\data-integration\\kitchen.bat /rep:kettle /dir:/ /user:admin /pass:admin /level:Basic /job:EDW_FENFA_JOB -param:\"DBTYPE=ORACLE\"  -param:\"TABLE_NAME=omdata.S24_SEAT_HISTORY\"  -param:\"EDW_TABLE_NAME=S24_SEAT_HISTORY\"  -param:\"COLUMNS=T.ID,T.BUS_ID,T.LAST_REST,T.REST,T.LAST_UPDATETIME,T.UPDATE_TIME\"  -param:\"USER_NAME=yyy\"  -param:\"CONDITIONS=TO_DATE('20160310','YYYYMMDD')=T.ETL_DT\"   -param:\"DATA_DT=20160310\"";            CommandLine commandline = CommandLine.parse(command);            DefaultExecutor exec = new DefaultExecutor();            exec.setExitValue(0);            ExecuteWatchdog watchdog = new ExecuteWatchdog(60*1000);            exec.setWatchdog(watchdog);            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();            ByteArrayOutputStream errorStream = new ByteArrayOutputStream();            PumpStreamHandler streamHandler = new PumpStreamHandler(outputStream,errorStream);            exec.setStreamHandler(streamHandler);            int execute = exec.execute(commandline);            String out = outputStream.toString("gbk");            String error = errorStream.toString("gbk");            System.out.println("out"+out);            System.out.println("error"+error);            System.out.println("exit: " + execute);        &#125; catch (Exception e) &#123;            return;        &#125;    &#125;&#125;
+1. 我当时运行的时候 CommandLine commandline = CommandLine.parse(shellInfo);的时候，命令还是正常的，到了处理的时候execute = exec.execute(commandline);就导致了命令符号的一些丢失，比如；=2. 后来想了很久，查找很多资料换了一种方式处理，不能通过转义字符来处理，为什么不换一种处理cmd命令的方式了，后来换了如下方式就可以了。
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+        
+            </div></section>
+        
+        
+        <section class="archives-wrap">
+            <div class="archive-year-wrap">
                 <a href="/archives/2016" class="archive-year"><i class="icon fa fa-calendar-o"></i>2016</a>
             </div>
             <div class="archives">
@@ -188,8 +247,6 @@
         </p>
     </div>
 </article>
-    
-        </div>
     
 
 
@@ -269,6 +326,26 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2018/02/02/java_execCommand_StreamGobbler/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/02/02/java_execCommand_StreamGobbler/" class="title">java执行cmd命令是遇到一些特殊字符处理丢失</a></p>
+                            <p class="item-date"><time datetime="2018-02-02T14:12:33.000Z" itemprop="datePublished">2018-02-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2018/01/22/Spring_Quartz_Job_Autowired/" class="thumbnail">
     
     
@@ -315,7 +392,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -325,7 +402,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -335,7 +412,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quartz/">Quartz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文章/">文章</a><span class="tag-list-count">2</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quartz/">Quartz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-execCommand/">java_execCommand</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文章/">文章</a><span class="tag-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -345,7 +422,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Quartz/" style="font-size: 10px;">Quartz</a> <a href="/tags/文章/" style="font-size: 20px;">文章</a>
+            <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Quartz/" style="font-size: 10px;">Quartz</a> <a href="/tags/java-execCommand/" style="font-size: 10px;">java_execCommand</a> <a href="/tags/文章/" style="font-size: 20px;">文章</a>
         </div>
     </div>
 
