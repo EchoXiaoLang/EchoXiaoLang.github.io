@@ -7,7 +7,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="文章,Ajax" />
+        <meta name="keywords" content="Ajax,文章" />
     
     <meta name="description" content="使用Ajax传送数据时，当数据中存在加号(+)、连接符(&amp;amp;)或者百分号(%)时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：1. “+”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”+”会丢失变空格。2. “&amp;amp;”号：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;amp;符号以后的数据都会丢失变空格。">
 <meta property="og:type" content="article">
@@ -15,10 +15,12 @@
 <meta property="og:url" content="http://www.songxiaolang.com/2016/09/22/data_exists_special_symbols/index.html">
 <meta property="og:site_name" content="Echo_Sxl">
 <meta property="og:description" content="使用Ajax传送数据时，当数据中存在加号(+)、连接符(&amp;amp;)或者百分号(%)时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：1. “+”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”+”会丢失变空格。2. “&amp;amp;”号：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;amp;符号以后的数据都会丢失变空格。">
-<meta property="og:updated_time" content="2017-09-25T09:03:34.738Z">
+<meta property="og:image" content="http://i1.bvimg.com/631107/a6670172054fa706.jpg">
+<meta property="og:updated_time" content="2018-02-04T06:36:33.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AJAX POST数据中有特殊符号导致数据丢失的解决方法">
 <meta name="twitter:description" content="使用Ajax传送数据时，当数据中存在加号(+)、连接符(&amp;amp;)或者百分号(%)时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：1. “+”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”+”会丢失变空格。2. “&amp;amp;”号：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;amp;符号以后的数据都会丢失变空格。">
+<meta name="twitter:image" content="http://i1.bvimg.com/631107/a6670172054fa706.jpg">
     
 
     
@@ -167,15 +169,17 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            <h1 id="使用Ajax传送数据时，当数据中存在加号-、连接符-amp-或者百分号-时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法："><a href="#使用Ajax传送数据时，当数据中存在加号-、连接符-amp-或者百分号-时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：" class="headerlink" title="使用Ajax传送数据时，当数据中存在加号(+)、连接符(&amp;)或者百分号(%)时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法："></a>使用Ajax传送数据时，当数据中存在加号(+)、连接符(&amp;)或者百分号(%)时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：</h1><h2 id="1-“-”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”-”会丢失变空格。"><a href="#1-“-”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”-”会丢失变空格。" class="headerlink" title="1. “+”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”+”会丢失变空格。"></a>1. “+”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”+”会丢失变空格。</h2><h2 id="2-“-amp-”号：JavaScript解析为变量连接符，所以服务器端接收数据时-amp-符号以后的数据都会丢失变空格。"><a href="#2-“-amp-”号：JavaScript解析为变量连接符，所以服务器端接收数据时-amp-符号以后的数据都会丢失变空格。" class="headerlink" title="2. “&amp;”号：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;符号以后的数据都会丢失变空格。"></a>2. “&amp;”号：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;符号以后的数据都会丢失变空格。</h2><a id="more"></a>
-<h1 id="解决方法是通过正则表达式进行编码替换-假设postStr是你想通过ajax传送的数据字符串"><a href="#解决方法是通过正则表达式进行编码替换-假设postStr是你想通过ajax传送的数据字符串" class="headerlink" title="解决方法是通过正则表达式进行编码替换(假设postStr是你想通过ajax传送的数据字符串)"></a>解决方法是通过正则表达式进行编码替换(假设postStr是你想通过ajax传送的数据字符串)</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">postStr = postStr.replace(<span class="regexp">/\%/g</span>, <span class="string">"%25"</span>);  </div><div class="line">postStr = postStr.replace(<span class="regexp">/\&amp;/g</span>, <span class="string">"%26"</span>);  </div><div class="line">postStr = postStr.replace(<span class="regexp">/\+/g</span>, <span class="string">"%2B"</span>);</div></pre></td></tr></table></figure>
+            <h5 id="使用Ajax传送数据时，当数据中存在加号-、连接符-amp-或者百分号-时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法："><a href="#使用Ajax传送数据时，当数据中存在加号-、连接符-amp-或者百分号-时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：" class="headerlink" title="使用Ajax传送数据时，当数据中存在加号(+)、连接符(&amp;)或者百分号(%)时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法："></a>使用Ajax传送数据时，当数据中存在加号(+)、连接符(&amp;)或者百分号(%)时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：</h5><h5 id="1-“-”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”-”会丢失变空格。"><a href="#1-“-”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”-”会丢失变空格。" class="headerlink" title="1. “+”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”+”会丢失变空格。"></a>1. “+”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”+”会丢失变空格。</h5><h5 id="2-“-amp-”号：JavaScript解析为变量连接符，所以服务器端接收数据时-amp-符号以后的数据都会丢失变空格。"><a href="#2-“-amp-”号：JavaScript解析为变量连接符，所以服务器端接收数据时-amp-符号以后的数据都会丢失变空格。" class="headerlink" title="2. “&amp;”号：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;符号以后的数据都会丢失变空格。"></a>2. “&amp;”号：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;符号以后的数据都会丢失变空格。</h5><a id="more"></a>
+<h4 id="解决方法是通过正则表达式进行编码替换-假设postStr是你想通过ajax传送的数据字符串"><a href="#解决方法是通过正则表达式进行编码替换-假设postStr是你想通过ajax传送的数据字符串" class="headerlink" title="解决方法是通过正则表达式进行编码替换(假设postStr是你想通过ajax传送的数据字符串)"></a>解决方法是通过正则表达式进行编码替换(假设postStr是你想通过ajax传送的数据字符串)</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">postStr = postStr.replace(<span class="regexp">/\%/g</span>, <span class="string">"%25"</span>);  </div><div class="line">postStr = postStr.replace(<span class="regexp">/\&amp;/g</span>, <span class="string">"%26"</span>);  </div><div class="line">postStr = postStr.replace(<span class="regexp">/\+/g</span>, <span class="string">"%2B"</span>);</div></pre></td></tr></table></figure>
+<p><img src="http://i1.bvimg.com/631107/a6670172054fa706.jpg" alt=""></p>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://www.songxiaolang.com/2016/09/22/data_exists_special_symbols/" data-id="cjd8exgz00002towicdrqkeqo" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.songxiaolang.com/2016/09/22/data_exists_special_symbols/" data-id="cjd8f1l8o00004kwij037hfbl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -381,7 +385,7 @@
                             <a href="/2016/09/22/data_exists_special_symbols/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(http://i1.bvimg.com/631107/a6670172054fa706.jpg)" alt="AJAX POST数据中有特殊符号导致数据丢失的解决方法" class="thumbnail-image"></span>
     
     
 </a>
