@@ -62,4 +62,26 @@
     
   </entry>
   
+  <entry>
+    <title>AJAX POST数据中有特殊符号导致数据丢失的解决方法</title>
+    <link href="http://www.songxiaolang.com/2016/09/22/data_exists_special_symbols/"/>
+    <id>http://www.songxiaolang.com/2016/09/22/data_exists_special_symbols/</id>
+    <published>2016-09-22T05:27:22.000Z</published>
+    <updated>2017-09-25T09:03:34.738Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;使用Ajax传送数据时，当数据中存在加号-、连接符-amp-或者百分号-时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：&quot;&gt;&lt;a href=&quot;#使用Ajax传送数据时，当数据中存在加号-、连接符-amp-或者百分号-时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：&quot; class=&quot;headerlink&quot; title=&quot;使用Ajax传送数据时，当数据中存在加号(+)、连接符(&amp;amp;)或者百分号(%)时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：&quot;&gt;&lt;/a&gt;使用Ajax传送数据时，当数据中存在加号(+)、连接符(&amp;amp;)或者百分号(%)时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：&lt;/h1&gt;&lt;h2 id=&quot;1-“-”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”-”会丢失变空格。&quot;&gt;&lt;a href=&quot;#1-“-”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”-”会丢失变空格。&quot; class=&quot;headerlink&quot; title=&quot;1. “+”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”+”会丢失变空格。&quot;&gt;&lt;/a&gt;1. “+”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”+”会丢失变空格。&lt;/h2&gt;&lt;h2 id=&quot;2-“-amp-”号：JavaScript解析为变量连接符，所以服务器端接收数据时-amp-符号以后的数据都会丢失变空格。&quot;&gt;&lt;a href=&quot;#2-“-amp-”号：JavaScript解析为变量连接符，所以服务器端接收数据时-amp-符号以后的数据都会丢失变空格。&quot; class=&quot;headerlink&quot; title=&quot;2. “&amp;amp;”号：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;amp;符号以后的数据都会丢失变空格。&quot;&gt;&lt;/a&gt;2. “&amp;amp;”号：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;amp;符号以后的数据都会丢失变空格。&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://www.songxiaolang.com/categories/JavaScript/"/>
+    
+    
+      <category term="文章" scheme="http://www.songxiaolang.com/tags/%E6%96%87%E7%AB%A0/"/>
+    
+      <category term="Ajax" scheme="http://www.songxiaolang.com/tags/Ajax/"/>
+    
+  </entry>
+  
 </feed>
