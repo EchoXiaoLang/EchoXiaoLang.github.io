@@ -15,10 +15,12 @@
 <meta property="og:url" content="http://www.songxiaolang.com/2018/01/22/Spring_Quartz_Job_Autowired/index.html">
 <meta property="og:site_name" content="Echo_Sxl">
 <meta property="og:description" content="Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案1. 当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。2. 利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。原因是Quartz初始化是自己的JobContext">
-<meta property="og:updated_time" content="2018-02-02T14:30:08.404Z">
+<meta property="og:image" content="http://i1.bvimg.com/631107/8420e045cd805108.jpg">
+<meta property="og:updated_time" content="2018-02-04T06:29:25.281Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案">
 <meta name="twitter:description" content="Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案1. 当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。2. 利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。原因是Quartz初始化是自己的JobContext">
+<meta name="twitter:image" content="http://i1.bvimg.com/631107/8420e045cd805108.jpg">
     
 
     
@@ -228,7 +230,7 @@
 <h6 id="这几天需要用到定时任务调度，因此转向quartz的学习，特此记录下来。-2"><a href="#这几天需要用到定时任务调度，因此转向quartz的学习，特此记录下来。-2" class="headerlink" title="这几天需要用到定时任务调度，因此转向quartz的学习，特此记录下来。"></a>这几天需要用到定时任务调度，因此转向quartz的学习，特此记录下来。</h6><p>quartz使用起来及其方便，与spring整合配置，只需要写一个类继承QuartzJobBean，重写其executeInternal(JobExecutionContext arg0)即可，我们只需要将自己的逻辑代码写在该方法即可。一旦你配置好实现类并设定好调度时间，Quartz将密切注意剩余时间。当调度程序确定该是执行作业的时候，Quartz框架将调用你作业类上的executeInternal()方法并执行相应的任务。无需报告任何东西给调度器或调用任何特定的东西。仅仅执行任务和结束任务即可。如果配置你的作业在随后再次被调用，Quartz框架将在恰当的时间再次调用它。</p>
 <h6 id="quartz有三个核心概念，调度器、任务和触发器。三者关系简单来说就是，调度器负责调度各个任务，到了某个时刻或者过了一定时间，触发器触动了，特定任务便启动执行。概念相对应的类和接口有：-2"><a href="#quartz有三个核心概念，调度器、任务和触发器。三者关系简单来说就是，调度器负责调度各个任务，到了某个时刻或者过了一定时间，触发器触动了，特定任务便启动执行。概念相对应的类和接口有：-2" class="headerlink" title="quartz有三个核心概念，调度器、任务和触发器。三者关系简单来说就是，调度器负责调度各个任务，到了某个时刻或者过了一定时间，触发器触动了，特定任务便启动执行。概念相对应的类和接口有："></a>quartz有三个核心概念，调度器、任务和触发器。三者关系简单来说就是，调度器负责调度各个任务，到了某个时刻或者过了一定时间，触发器触动了，特定任务便启动执行。概念相对应的类和接口有：</h6><p>　　1）JobDetail：描述任务的相关情况，包括配置任务执行的类和方法。</p>
 <p>　　2）Trigger：描述出发Job执行的时间触发规则。有SimpleTrigger和CronTrigger两个子类代表两种方式，一种是每隔多少分钟小时执行，则用SimpleTrigger；另一种是日历相关的重复时间间隔，如每天凌晨，每周星期一运行的话，通过Cron表达式便可定义出复杂的调度方案。</p>
-<p>　　3）Scheduler：代表一个Quartz的独立运行容器，Trigger和JobDetail要注册到Scheduler中才会生效，也就是让调度器知道有哪些触发器和任务，才能进行按规则进行调度任务。<br>quartz的配置一般有两种，一种是配置无参数的任务，就是一个普通方法，要求该执行任务的方法必须为无参方法，否则会报错。另一种是配置可传参方法，因为这里我需要给任务传递一些参数，所以采用第二种配置方法。<br>首先，需要下载quartz和spring对其提供支持的jar包。我这里采用的是quartz-2.2.1.jar，spring-context-support-4.2.4.RELEASE.jar，下载其他版本请注意包版本之间的兼容。  </p>
+<p>　　3）Scheduler：代表一个Quartz的独立运行容器，Trigger和JobDetail要注册到Scheduler中才会生效，也就是让调度器知道有哪些触发器和任务，才能进行按规则进行调度任务。<br>quartz的配置一般有两种，一种是配置无参数的任务，就是一个普通方法，要求该执行任务的方法必须为无参方法，否则会报错。另一种是配置可传参方法，因为这里我需要给任务传递一些参数，所以采用第二种配置方法。<br>首先，需要下载quartz和spring对其提供支持的jar包。我这里采用的是quartz-2.2.1.jar，spring-context-support-4.2.4.RELEASE.jar，下载其他版本请注意包版本之间的兼容。<br><img src="http://i1.bvimg.com/631107/8420e045cd805108.jpg" alt="">  </p>
 
         </div>
         <footer class="article-footer">
@@ -236,7 +238,7 @@
 
 
 
-    <a data-url="http://www.songxiaolang.com/2018/01/22/Spring_Quartz_Job_Autowired/" data-id="cjd8ef9pi0001nowi5ksbci5h" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.songxiaolang.com/2018/01/22/Spring_Quartz_Job_Autowired/" data-id="cjd8erc3r0007bgwieaeog7qt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -428,7 +430,7 @@
                             <a href="/2018/01/22/Spring_Quartz_Job_Autowired/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(http://i1.bvimg.com/631107/8420e045cd805108.jpg)" alt="Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案" class="thumbnail-image"></span>
     
     
 </a>
