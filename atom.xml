@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.songxiaolang.com/"/>
-  <updated>2018-02-06T05:53:50.171Z</updated>
+  <updated>2018-02-05T07:09:44.312Z</updated>
   <id>http://www.songxiaolang.com/</id>
   
   <author>
@@ -14,28 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>linux tomcat stopʱ Connectionrefused</title>
-    <link href="http://www.songxiaolang.com/2018/02/06/linux_tomcat_kill/"/>
-    <id>http://www.songxiaolang.com/2018/02/06/linux_tomcat_kill/</id>
-    <published>2018-02-06T03:18:12.000Z</published>
-    <updated>2018-02-06T05:53:50.171Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h5 id=&quot;��linux-stop-tomcat��ʱ������linu����-Connection-refused�����O�Ҫkeill-tomcat���̡�&quot;&gt;&lt;a href=&quot;#��linux-stop-tomcat��ʱ������linu����-Con
-    
-    </summary>
-    
-      <category term="tomcat" scheme="http://www.songxiaolang.com/categories/tomcat/"/>
-    
-    
-      <category term="linux" scheme="http://www.songxiaolang.com/tags/linux/"/>
-    
-      <category term="����" scheme="http://www.songxiaolang.com/tags/%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD/"/>
-    
-  </entry>
   
   <entry>
     <title>如何通过QQ聊天获取对方ip</title>
