@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.songxiaolang.com/"/>
-  <updated>2018-02-06T03:18:42.880Z</updated>
+  <updated>2018-02-06T05:34:49.184Z</updated>
   <id>http://www.songxiaolang.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>linux tomcat stopʱ Connection refused (Connection refused)</title>
+    <title>linuxtomcatstopʱConnectionrefused</title>
     <link href="http://www.songxiaolang.com/2018/02/06/linux_tomcat_kill/"/>
     <id>http://www.songxiaolang.com/2018/02/06/linux_tomcat_kill/</id>
     <published>2018-02-06T03:18:12.000Z</published>
-    <updated>2018-02-06T03:18:42.880Z</updated>
+    <updated>2018-02-06T05:34:49.184Z</updated>
     
     <summary type="html">
     
@@ -76,9 +76,9 @@
       <category term="JavaScript" scheme="http://www.songxiaolang.com/categories/JavaScript/"/>
     
     
-      <category term="Ajax" scheme="http://www.songxiaolang.com/tags/Ajax/"/>
-    
       <category term="文章" scheme="http://www.songxiaolang.com/tags/%E6%96%87%E7%AB%A0/"/>
+    
+      <category term="Ajax" scheme="http://www.songxiaolang.com/tags/Ajax/"/>
     
   </entry>
   
@@ -99,9 +99,9 @@
       <category term="StreamGobbler" scheme="http://www.songxiaolang.com/categories/StreamGobbler/"/>
     
     
-      <category term="文章" scheme="http://www.songxiaolang.com/tags/%E6%96%87%E7%AB%A0/"/>
-    
       <category term="java_execCommand" scheme="http://www.songxiaolang.com/tags/java-execCommand/"/>
+    
+      <category term="文章" scheme="http://www.songxiaolang.com/tags/%E6%96%87%E7%AB%A0/"/>
     
   </entry>
   
