@@ -11,12 +11,10 @@
 <meta property="og:url" content="http://www.songxiaolang.com/2018/02/05/data_exists_special_symbols/index.html">
 <meta property="og:site_name" content="Echo_Sxl">
 <meta property="og:description" content="使用Ajax传送数据时，当数据中存在加号(+)、连接符(&amp;amp;)或者百分号(%)时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：1. “+”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”+”会丢失变空格。2. “&amp;amp;”号：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;amp;符号以后的数据都会丢失变空格。">
-<meta property="og:image" content="http://img0.ph.126.net/1-Ws46NNEtOByQwjTu7AFg==/6597876808193454255.jpg">
-<meta property="og:updated_time" content="2018-03-01T13:09:26.263Z">
+<meta property="og:updated_time" content="2018-03-01T13:18:16.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AJAX POST数据中有特殊符号导致数据丢失的解决方法">
 <meta name="twitter:description" content="使用Ajax传送数据时，当数据中存在加号(+)、连接符(&amp;amp;)或者百分号(%)时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：1. “+”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”+”会丢失变空格。2. “&amp;amp;”号：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;amp;符号以后的数据都会丢失变空格。">
-<meta name="twitter:image" content="http://img0.ph.126.net/1-Ws46NNEtOByQwjTu7AFg==/6597876808193454255.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Echo_Sxl" type="application/atom+xml">
   
@@ -278,7 +276,6 @@
           
         <h5 id="使用Ajax传送数据时，当数据中存在加号-、连接符-amp-或者百分号-时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法："><a href="#使用Ajax传送数据时，当数据中存在加号-、连接符-amp-或者百分号-时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：" class="headerlink" title="使用Ajax传送数据时，当数据中存在加号(+)、连接符(&amp;)或者百分号(%)时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法："></a>使用Ajax传送数据时，当数据中存在加号(+)、连接符(&amp;)或者百分号(%)时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：</h5><h5 id="1-“-”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”-”会丢失变空格。"><a href="#1-“-”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”-”会丢失变空格。" class="headerlink" title="1. “+”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”+”会丢失变空格。"></a>1. “+”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”+”会丢失变空格。</h5><h5 id="2-“-amp-”号：JavaScript解析为变量连接符，所以服务器端接收数据时-amp-符号以后的数据都会丢失变空格。"><a href="#2-“-amp-”号：JavaScript解析为变量连接符，所以服务器端接收数据时-amp-符号以后的数据都会丢失变空格。" class="headerlink" title="2. “&amp;”号：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;符号以后的数据都会丢失变空格。"></a>2. “&amp;”号：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;符号以后的数据都会丢失变空格。</h5><a id="more"></a>
 <h4 id="解决方法是通过正则表达式进行编码替换-假设postStr是你想通过ajax传送的数据字符串"><a href="#解决方法是通过正则表达式进行编码替换-假设postStr是你想通过ajax传送的数据字符串" class="headerlink" title="解决方法是通过正则表达式进行编码替换(假设postStr是你想通过ajax传送的数据字符串)"></a>解决方法是通过正则表达式进行编码替换(假设postStr是你想通过ajax传送的数据字符串)</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">postStr = postStr.replace(<span class="regexp">/\%/g</span>, <span class="string">"%25"</span>);  </div><div class="line">postStr = postStr.replace(<span class="regexp">/\&amp;/g</span>, <span class="string">"%26"</span>);  </div><div class="line">postStr = postStr.replace(<span class="regexp">/\+/g</span>, <span class="string">"%2B"</span>);</div></pre></td></tr></table></figure>
-<p><img src="http://img0.ph.126.net/1-Ws46NNEtOByQwjTu7AFg==/6597876808193454255.jpg" alt=""></p>
 
       
       
@@ -338,7 +335,7 @@
         <p><span>本文标题:</span><a href="/2018/02/05/data_exists_special_symbols/">AJAX POST数据中有特殊符号导致数据丢失的解决方法</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Echo_Sxl 的个人博客">Echo_Sxl</a></p>
         <p><span>发布时间:</span>2018年02月05日 - 08时27分</p>
-        <p><span>最后更新:</span>2018年03月01日 - 21时09分</p>
+        <p><span>最后更新:</span>2018年03月01日 - 21时18分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/02/05/data_exists_special_symbols/" title="AJAX POST数据中有特殊符号导致数据丢失的解决方法">http://www.songxiaolang.com/2018/02/05/data_exists_special_symbols/</a>
             <span class="copy-path" data-clipboard-text="原文: http://www.songxiaolang.com/2018/02/05/data_exists_special_symbols/　　作者: Echo_Sxl" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
