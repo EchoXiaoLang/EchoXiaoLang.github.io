@@ -77,9 +77,9 @@
       <category term="StreamGobbler" scheme="http://www.songxiaolang.com/categories/StreamGobbler/"/>
     
     
-      <category term="文章" scheme="http://www.songxiaolang.com/tags/%E6%96%87%E7%AB%A0/"/>
-    
       <category term="java_execCommand" scheme="http://www.songxiaolang.com/tags/java-execCommand/"/>
+    
+      <category term="文章" scheme="http://www.songxiaolang.com/tags/%E6%96%87%E7%AB%A0/"/>
     
   </entry>
   
@@ -101,9 +101,9 @@
       <category term="Spring" scheme="http://www.songxiaolang.com/categories/Spring/"/>
     
     
-      <category term="Quartz" scheme="http://www.songxiaolang.com/tags/Quartz/"/>
-    
       <category term="文章" scheme="http://www.songxiaolang.com/tags/%E6%96%87%E7%AB%A0/"/>
+    
+      <category term="Quartz" scheme="http://www.songxiaolang.com/tags/Quartz/"/>
     
   </entry>
   
