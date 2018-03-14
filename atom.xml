@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.songxiaolang.com/"/>
-  <updated>2018-03-14T11:45:23.676Z</updated>
+  <updated>2018-03-14T11:52:14.564Z</updated>
   <id>http://www.songxiaolang.com/</id>
   
   <author>
@@ -16,24 +16,24 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>������window������������ͬ�汾��tomcat.exe����</title>
+    <title>如何在window环境下启动相同版本的tomcat.exe程序</title>
     <link href="http://www.songxiaolang.com/2018/03/14/tomcat_service_install/"/>
     <id>http://www.songxiaolang.com/2018/03/14/tomcat_service_install/</id>
     <published>2018-03-14T11:34:58.000Z</published>
-    <updated>2018-03-14T11:45:23.676Z</updated>
+    <updated>2018-03-14T11:52:14.564Z</updated>
     
     <summary type="html">
     
-      &lt;h5 id=&quot;֮j���������������汾��tomcat8-����tomat8w��ʱ�򣬻�������һ��װ����̨Windowsװ��tomcat�ĳ��򣬺����������е�tomcat8-exe-��dos���ԣ���������������ʱ
+      &lt;h5 id=&quot;之前有人遇到了两个版本的tomcat8-运行tomat8w的时候，会启动第一个装在这台Windows装的tomcat的程序，后来看了运行的tomcat8-exe-的dos语言，发现他的启动的时候先看环境变量有没有，如果第一次有就运行环境变量的路径的tomcat-e
     
     </summary>
     
       <category term="tomcat" scheme="http://www.songxiaolang.com/categories/tomcat/"/>
     
     
-      <category term="tomcat" scheme="http://www.songxiaolang.com/tags/tomcat/"/>
+      <category term="文章" scheme="http://www.songxiaolang.com/tags/%E6%96%87%E7%AB%A0/"/>
     
-      <category term="����" scheme="http://www.songxiaolang.com/tags/%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD/"/>
+      <category term="tomcat" scheme="http://www.songxiaolang.com/tags/tomcat/"/>
     
   </entry>
   
