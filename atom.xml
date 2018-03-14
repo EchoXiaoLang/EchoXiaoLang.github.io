@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.songxiaolang.com/"/>
-  <updated>2018-03-01T13:23:57.046Z</updated>
+  <updated>2018-03-14T11:38:44.501Z</updated>
   <id>http://www.songxiaolang.com/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>��������window������������ͬ�汾��tomcat.exe����</title>
+    <link href="http://www.songxiaolang.com/2018/03/14/tomcat_service/"/>
+    <id>http://www.songxiaolang.com/2018/03/14/tomcat_service/</id>
+    <published>2018-03-14T11:34:58.000Z</published>
+    <updated>2018-03-14T11:38:44.501Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;֮j���������������汾��tomcat8-����tomat8w��ʱ�򣬻�������һ��װ����̨Windowsװ��tomcat�ĳ��򣬺����������е�tomcat8-exe-��dos���ԣ���������������ʱ���s�����������u�У�������һ���о����л���������·����tomcat-exe-���g�һ�����е�ʱ����Ҫע��һ��&quot;&gt;&lt;a href=&quot;#֮j���������������汾��tomcat8-����tomat8w��ʱ�򣬻�������һ��װ����̨Windowsװ��tomcat�ĳ��򣬺����������е�tomcat8-exe-��dos���ԣ���������������ʱ���s�����������u�У�������һ���о����л���������·����tomcat-exe-���g�һ�����е�ʱ����Ҫע��һ��&quot; class=&quot;headerlink&quot; title=&quot;֮ǰ���������������汾��tomcat8 ����tomat8w��ʱ�򣬻�������һ��װ����̨Windowsװ��tomcat�ĳ��򣬺����������е�tomcat8.exe ��dos���ԣ���������������ʱ���ȿ�����������û�У�������һ���о����л���������·����tomcat.exe ,���ǵ�һ�����е�ʱ����Ҫע��һ��&quot;&gt;&lt;/a&gt;֮ǰ���������������汾��tomcat8 ����tomat8w��ʱ�򣬻�������һ��װ����̨Windowsװ��tomcat�ĳ��򣬺����������е�tomcat8.exe ��dos���ԣ���������������ʱ���ȿ�����������û�У�������һ���о����л���������·����tomcat.exe ,���ǵ�һ�����е�ʱ����Ҫע��һ��&lt;/h5&gt;&lt;h5 id=&quot;�����취���ae��޸�service-bat-����������tomcat8-o���滻�ɣ�����tomatapp���j������Լ�ȡ�Ϳ����ˣ�C���ٽ�bin-L¼��tomcat8-exe-�ĳ���֮j�jg��ͱ�����֮j��tomcatapp-exe-tomcat8w-exe�ĳ�tomcatappw-exe-C������������-cd��binL¼���档ע��service������service-bat-install�Ϳ����ˣ����ھͿ���ֱ������������ͬ�汾��tomcat�ˡ�&quot;&gt;&lt;a href=&quot;#�����취���ae��޸�service-bat-����������tomcat8-o���滻�ɣ�����tomatapp���j������Լ�ȡ�Ϳ����ˣ�C���ٽ�bin-L¼��tomcat8-exe-�ĳ���֮j�jg��ͱ�����֮j��tomcatapp-exe-tomcat8w-exe�ĳ�tomcatappw-exe-C������������-cd��binL¼���档ע��service������service-bat-install�Ϳ����ˣ����ھͿ���ֱ������������ͬ�汾��tomcat�ˡ�&quot; class=&quot;headerlink&quot; title=&quot;�����취���ǣ��޸�service.bat ����������tomcat8 ȫ���滻�ɣ�����tomatapp���ĵ������Լ�ȡ�Ϳ����ˣ�Ȼ���ٽ�bin Ŀ¼��tomcat8.exe �ĳ���֮ǰ�ĵģ��ͱ�����֮ǰ��tomcatapp.exe, tomcat8w.exe�ĳ�tomcatappw.exe,Ȼ������������ cd��binĿ¼���档ע��service������service.bat install�Ϳ����ˣ����ھͿ���ֱ������������ͬ�汾��tomcat�ˡ�&quot;&gt;&lt;/a&gt;�����취���ǣ��޸�service.bat ����������tomcat8 ȫ���滻�ɣ�����tomatapp���ĵ������Լ�ȡ�Ϳ����ˣ�Ȼ���ٽ�bin Ŀ¼��tomcat8.exe �ĳ���֮ǰ�ĵģ��ͱ�����֮ǰ��tomcatapp.exe, tomcat8w.exe�ĳ�tomcatappw.exe,Ȼ������������ cd��binĿ¼���档ע��service������service.bat install�Ϳ����ˣ����ھͿ���ֱ������������ͬ�汾��tomcat�ˡ�&lt;/h5&gt;&lt;h6 id=&quot;ע�⣺y���޸j�service-bat-tomcat8��Ҫ��ͬ����ͬ��ʱ�򣬾ͻ���������������&quot;&gt;&lt;a href=&quot;#ע�⣺y���޸j�service-bat-tomcat8��Ҫ��ͬ����ͬ��ʱ�򣬾ͻ���������������&quot; class=&quot;headerlink&quot; title=&quot;ע�⣺ÿ���޸ĵ�service.bat tomcat8��Ҫ��ͬ����ͬ��ʱ�򣬾ͻ���������������&quot;&gt;&lt;/a&gt;ע�⣺ÿ���޸ĵ�service.bat tomcat8��Ҫ��ͬ����ͬ��ʱ�򣬾ͻ���������������&lt;/h6&gt;
+    
+    </summary>
+    
+      <category term="tomcat" scheme="http://www.songxiaolang.com/categories/tomcat/"/>
+    
+    
+      <category term="tomcat" scheme="http://www.songxiaolang.com/tags/tomcat/"/>
+    
+      <category term="����" scheme="http://www.songxiaolang.com/tags/%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>如何通过QQ聊天获取对方ip</title>
@@ -77,9 +99,9 @@
       <category term="StreamGobbler" scheme="http://www.songxiaolang.com/categories/StreamGobbler/"/>
     
     
-      <category term="java_execCommand" scheme="http://www.songxiaolang.com/tags/java-execCommand/"/>
-    
       <category term="文章" scheme="http://www.songxiaolang.com/tags/%E6%96%87%E7%AB%A0/"/>
+    
+      <category term="java_execCommand" scheme="http://www.songxiaolang.com/tags/java-execCommand/"/>
     
   </entry>
   
@@ -101,9 +123,9 @@
       <category term="Spring" scheme="http://www.songxiaolang.com/categories/Spring/"/>
     
     
-      <category term="文章" scheme="http://www.songxiaolang.com/tags/%E6%96%87%E7%AB%A0/"/>
-    
       <category term="Quartz" scheme="http://www.songxiaolang.com/tags/Quartz/"/>
+    
+      <category term="文章" scheme="http://www.songxiaolang.com/tags/%E6%96%87%E7%AB%A0/"/>
     
   </entry>
   
