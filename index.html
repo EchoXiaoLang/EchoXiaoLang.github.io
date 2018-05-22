@@ -236,6 +236,75 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Spring_Quartz_Job_Autowired" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/05/22/Spring_Quartz_Job_Autowired/" class="article-date">
+      <time datetime="2018-05-22T03:29:03.000Z" itemprop="datePublished">2018-05-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/22/Spring_Quartz_Job_Autowired/">Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h3 id="Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案"><a href="#Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案" class="headerlink" title="Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案"></a>Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案</h3><h4 id="1-当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。"><a href="#1-当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。" class="headerlink" title="1. 当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。"></a>1. 当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。</h4><h4 id="2-利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。"><a href="#2-利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。" class="headerlink" title="2. 利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。"></a>2. 利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。</h4><p>原因是Quartz初始化是自己的JobContext，不同于Spring的ApplicationContext，所以无法直接注入</p>
+<h4 id="3-具体做法是直接getBean-的方式来获取service的"><a href="#3-具体做法是直接getBean-的方式来获取service的" class="headerlink" title="3.具体做法是直接getBean()的方式来获取service的"></a>3.具体做法是直接getBean()的方式来获取service的</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public <span class="class"><span class="keyword">class</span> <span class="title">DispatchWork</span> <span class="title">implements</span> <span class="title">Job</span> </span>&#123;</div><div class="line">     @Override</div><div class="line">    public <span class="keyword">void</span> execute(JobExecutionContext jobExecutionContext) throws JobExecutionException &#123;</div><div class="line">        <span class="built_in">String</span> jobName = jobExecutionContext.getJobDetail().getKey().getName();</div><div class="line">        <span class="built_in">String</span> group = jobExecutionContext.getTrigger().getKey().getGroup();</div><div class="line">         RunKettleSerive  runKettleSerive= SpringContextHolder.getBean(RunKettleSerive.class);</div><div class="line">         runKettleSerive.runKettleScript(jobName,group);</div><div class="line">      <span class="comment">/*  runKettleSerive.runKettleScript(jobName,group);*/</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-关键代码就是RunKettleSerive-runKettleSerive-SpringContextHolder-getBean-RunKettleSerive-class-。"><a href="#4-关键代码就是RunKettleSerive-runKettleSerive-SpringContextHolder-getBean-RunKettleSerive-class-。" class="headerlink" title="4.关键代码就是RunKettleSerive  runKettleSerive= SpringContextHolder.getBean(RunKettleSerive.class)。"></a>4.关键代码就是RunKettleSerive  runKettleSerive= SpringContextHolder.getBean(RunKettleSerive.class)。</h3>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Spring/">Spring</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Quartz/">Quartz</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2018/05/22/Spring_Quartz_Job_Autowired/#more">了解更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-tomcat_service_install" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -348,6 +417,73 @@
       
         <p class="article-more-link">
           <a  href="/2018/02/05/QQ_IP/#more">了解更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-data_exists_special_symbols" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/02/05/data_exists_special_symbols/" class="article-date">
+      <time datetime="2018-02-05T00:27:22.000Z" itemprop="datePublished">2018-02-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/05/data_exists_special_symbols/">AJAX POST数据中有特殊符号导致数据丢失的解决方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h5 id="使用Ajax传送数据时，当数据中存在加号-、连接符-amp-或者百分号-时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法："><a href="#使用Ajax传送数据时，当数据中存在加号-、连接符-amp-或者百分号-时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：" class="headerlink" title="使用Ajax传送数据时，当数据中存在加号(+)、连接符(&amp;)或者百分号(%)时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法："></a>使用Ajax传送数据时，当数据中存在加号(+)、连接符(&amp;)或者百分号(%)时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：</h5><h5 id="1-“-”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”-”会丢失变空格。"><a href="#1-“-”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”-”会丢失变空格。" class="headerlink" title="1. “+”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”+”会丢失变空格。"></a>1. “+”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”+”会丢失变空格。</h5><h5 id="2-“-amp-”号：JavaScript解析为变量连接符，所以服务器端接收数据时-amp-符号以后的数据都会丢失变空格。"><a href="#2-“-amp-”号：JavaScript解析为变量连接符，所以服务器端接收数据时-amp-符号以后的数据都会丢失变空格。" class="headerlink" title="2. “&amp;”号：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;符号以后的数据都会丢失变空格。"></a>2. “&amp;”号：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;符号以后的数据都会丢失变空格。</h5>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2018/02/05/data_exists_special_symbols/#more">了解更多 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -504,73 +640,6 @@
 
 
   
-    <article id="post-data_exists_special_symbols" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/02/05/data_exists_special_symbols/" class="article-date">
-      <time datetime="2018-02-05T00:27:22.000Z" itemprop="datePublished">2018-02-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/05/data_exists_special_symbols/">AJAX POST数据中有特殊符号导致数据丢失的解决方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h5 id="使用Ajax传送数据时，当数据中存在加号-、连接符-amp-或者百分号-时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法："><a href="#使用Ajax传送数据时，当数据中存在加号-、连接符-amp-或者百分号-时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：" class="headerlink" title="使用Ajax传送数据时，当数据中存在加号(+)、连接符(&amp;)或者百分号(%)时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法："></a>使用Ajax传送数据时，当数据中存在加号(+)、连接符(&amp;)或者百分号(%)时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：</h5><h5 id="1-“-”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”-”会丢失变空格。"><a href="#1-“-”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”-”会丢失变空格。" class="headerlink" title="1. “+”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”+”会丢失变空格。"></a>1. “+”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”+”会丢失变空格。</h5><h5 id="2-“-amp-”号：JavaScript解析为变量连接符，所以服务器端接收数据时-amp-符号以后的数据都会丢失变空格。"><a href="#2-“-amp-”号：JavaScript解析为变量连接符，所以服务器端接收数据时-amp-符号以后的数据都会丢失变空格。" class="headerlink" title="2. “&amp;”号：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;符号以后的数据都会丢失变空格。"></a>2. “&amp;”号：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;符号以后的数据都会丢失变空格。</h5>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2018/02/05/data_exists_special_symbols/#more">了解更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-java_execCommand_StreamGobbler" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -621,75 +690,6 @@
       
         <p class="article-more-link">
           <a  href="/2018/02/02/java_execCommand_StreamGobbler/#more">了解更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Spring_Quartz_Job_Autowired" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/01/22/Spring_Quartz_Job_Autowired/" class="article-date">
-      <time datetime="2018-01-22T05:27:22.000Z" itemprop="datePublished">2018-01-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/22/Spring_Quartz_Job_Autowired/">Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案"><a href="#Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案" class="headerlink" title="Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案"></a>Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案</h3><h4 id="1-当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。"><a href="#1-当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。" class="headerlink" title="1. 当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。"></a>1. 当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。</h4><h4 id="2-利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。"><a href="#2-利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。" class="headerlink" title="2. 利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。"></a>2. 利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。</h4><p>原因是Quartz初始化是自己的JobContext，不同于Spring的ApplicationContext，所以无法直接注入</p>
-<h4 id="3-具体做法是直接getBean-的方式来获取service的"><a href="#3-具体做法是直接getBean-的方式来获取service的" class="headerlink" title="3.具体做法是直接getBean()的方式来获取service的"></a>3.具体做法是直接getBean()的方式来获取service的</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public <span class="class"><span class="keyword">class</span> <span class="title">DispatchWork</span> <span class="title">implements</span> <span class="title">Job</span> </span>&#123;</div><div class="line">     @Override</div><div class="line">    public <span class="keyword">void</span> execute(JobExecutionContext jobExecutionContext) throws JobExecutionException &#123;</div><div class="line">        <span class="built_in">String</span> jobName = jobExecutionContext.getJobDetail().getKey().getName();</div><div class="line">        <span class="built_in">String</span> group = jobExecutionContext.getTrigger().getKey().getGroup();</div><div class="line">         RunKettleSerive  runKettleSerive= SpringContextHolder.getBean(RunKettleSerive.class);</div><div class="line">         runKettleSerive.runKettleScript(jobName,group);</div><div class="line">      <span class="comment">/*  runKettleSerive.runKettleScript(jobName,group);*/</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="4-关键代码就是RunKettleSerive-runKettleSerive-SpringContextHolder-getBean-RunKettleSerive-class-。"><a href="#4-关键代码就是RunKettleSerive-runKettleSerive-SpringContextHolder-getBean-RunKettleSerive-class-。" class="headerlink" title="4.关键代码就是RunKettleSerive  runKettleSerive= SpringContextHolder.getBean(RunKettleSerive.class)。"></a>4.关键代码就是RunKettleSerive  runKettleSerive= SpringContextHolder.getBean(RunKettleSerive.class)。</h3>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Spring/">Spring</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Quartz/">Quartz</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2018/01/22/Spring_Quartz_Job_Autowired/#more">了解更多 >></a>
         </p>
       
       <div class="clearfix"></div>

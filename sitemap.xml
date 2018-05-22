@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.songxiaolang.com/2018/05/22/Spring_Quartz_Job_Autowired/</loc>
+    
+    <lastmod>2018-05-22T03:29:07.234Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.songxiaolang.com/2018/02/05/centos7_pxc_mysql/</loc>
     
     <lastmod>2018-05-22T03:24:12.218Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://www.songxiaolang.com/2018/02/02/java_execCommand_StreamGobbler/</loc>
     
     <lastmod>2018-02-05T01:19:29.346Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.songxiaolang.com/2018/01/22/Spring_Quartz_Job_Autowired/</loc>
-    
-    <lastmod>2018-02-04T06:29:25.281Z</lastmod>
     
   </url>
   
