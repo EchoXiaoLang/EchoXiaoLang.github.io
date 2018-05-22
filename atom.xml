@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.songxiaolang.com/"/>
-  <updated>2018-05-22T07:39:40.848Z</updated>
+  <updated>2018-05-22T07:42:44.216Z</updated>
   <id>http://www.songxiaolang.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.songxiaolang.com/2018/05/22/centos7_pxc_mysql/"/>
     <id>http://www.songxiaolang.com/2018/05/22/centos7_pxc_mysql/</id>
     <published>2018-05-22T07:39:38.000Z</published>
-    <updated>2018-05-22T07:39:40.848Z</updated>
+    <updated>2018-05-22T07:42:44.216Z</updated>
     
     <summary type="html">
     
@@ -31,9 +31,9 @@
       <category term="PerconaXtraDBCluster" scheme="http://www.songxiaolang.com/categories/PerconaXtraDBCluster/"/>
     
     
-      <category term="Ajax" scheme="http://www.songxiaolang.com/tags/Ajax/"/>
+      <category term="centos7" scheme="http://www.songxiaolang.com/tags/centos7/"/>
     
-      <category term="文章" scheme="http://www.songxiaolang.com/tags/%E6%96%87%E7%AB%A0/"/>
+      <category term="mysql" scheme="http://www.songxiaolang.com/tags/mysql/"/>
     
   </entry>
   
