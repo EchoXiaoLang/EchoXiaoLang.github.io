@@ -3,17 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Echo_Sxl</title>
+  <title>AJAX POST数据中有特殊符号导致数据丢失的解决方法 | Echo_Sxl</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="晓朗的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Echo_Sxl">
-<meta property="og:url" content="http://www.songxiaolang.com/index.html">
+  <meta name="description" content="##基于CentOS 7 安装Percona XtraDB Cluster(PXC) 5.7Percona XtraDB Cluster(简称PXC)是很多企业基于MySQL实现集群方案的不二选择。PXC它支持服务高可用,数据同步复制(并发复制)，几乎无延迟；多个可同时读写节点，可实现写扩展等等本文是基于CentOS 7 PXC 5.7版一个更为标准的安装，可供大家参考。
+第一步：查看当前os环境">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AJAX POST数据中有特殊符号导致数据丢失的解决方法">
+<meta property="og:url" content="http://www.songxiaolang.com/2018/02/05/centos7_pxc_mysql/index.html">
 <meta property="og:site_name" content="Echo_Sxl">
-<meta property="og:description" content="晓朗的博客">
+<meta property="og:description" content="##基于CentOS 7 安装Percona XtraDB Cluster(PXC) 5.7Percona XtraDB Cluster(简称PXC)是很多企业基于MySQL实现集群方案的不二选择。PXC它支持服务高可用,数据同步复制(并发复制)，几乎无延迟；多个可同时读写节点，可实现写扩展等等本文是基于CentOS 7 PXC 5.7版一个更为标准的安装，可供大家参考。
+第一步：查看当前os环境">
+<meta property="og:updated_time" content="2018-05-22T03:24:12.218Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Echo_Sxl">
-<meta name="twitter:description" content="晓朗的博客">
+<meta name="twitter:title" content="AJAX POST数据中有特殊符号导致数据丢失的解决方法">
+<meta name="twitter:description" content="##基于CentOS 7 安装Percona XtraDB Cluster(PXC) 5.7Percona XtraDB Cluster(简称PXC)是很多企业基于MySQL实现集群方案的不二选择。PXC它支持服务高可用,数据同步复制(并发复制)，几乎无延迟；多个可同时读写节点，可实现写扩展等等本文是基于CentOS 7 PXC 5.7版一个更为标准的安装，可供大家参考。
+第一步：查看当前os环境">
   
     <link rel="alternative" href="/atom.xml" title="Echo_Sxl" type="application/atom+xml">
   
@@ -27,9 +31,6 @@
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
-    
-    
-  
   
       <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
@@ -41,8 +42,8 @@
           rootUrl: '/',
           fancybox: true,
           animate: true,
-          isHome: true,
-          isPost: false,
+          isHome: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -234,139 +235,7 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-tomcat_service_install" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/03/14/tomcat_service_install/" class="article-date">
-      <time datetime="2018-03-14T11:34:58.000Z" itemprop="datePublished">2018-03-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/14/tomcat_service_install/">如何在window环境下启动相同版本的tomcat.exe程序</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h5 id="之前有人遇到了两个版本的tomcat8-运行tomat8w的时候，会启动第一个装在这台Windows装的tomcat的程序，后来看了运行的tomcat8-exe-的dos语言，发现他的启动的时候先看环境变量有没有，如果第一次有就运行环境变量的路径的tomcat-exe-就是第一次运行的时候会要注册一下"><a href="#之前有人遇到了两个版本的tomcat8-运行tomat8w的时候，会启动第一个装在这台Windows装的tomcat的程序，后来看了运行的tomcat8-exe-的dos语言，发现他的启动的时候先看环境变量有没有，如果第一次有就运行环境变量的路径的tomcat-exe-就是第一次运行的时候会要注册一下" class="headerlink" title="之前有人遇到了两个版本的tomcat8 运行tomat8w的时候，会启动第一个装在这台Windows装的tomcat的程序，后来看了运行的tomcat8.exe 的dos语言，发现他的启动的时候先看环境变量有没有，如果第一次有就运行环境变量的路径的tomcat.exe ,就是第一次运行的时候会要注册一下"></a>之前有人遇到了两个版本的tomcat8 运行tomat8w的时候，会启动第一个装在这台Windows装的tomcat的程序，后来看了运行的tomcat8.exe 的dos语言，发现他的启动的时候先看环境变量有没有，如果第一次有就运行环境变量的路径的tomcat.exe ,就是第一次运行的时候会要注册一下</h5><h5 id="解决办法就是：修改service-bat-将里面所有tomcat8-全部替换成，比如tomatapp，改的名字自己取就可以了，然后再讲bin-目录的tomcat8-exe-改成你之前改的，就比如我之前的tomcatapp-exe-tomcat8w-exe改成tomcatappw-exe-然后打开命令行-cd到bin目录下面。注册service服务，service-bat-install就可以了，现在就可以直接运行两个相同版本的tomcat了。"><a href="#解决办法就是：修改service-bat-将里面所有tomcat8-全部替换成，比如tomatapp，改的名字自己取就可以了，然后再讲bin-目录的tomcat8-exe-改成你之前改的，就比如我之前的tomcatapp-exe-tomcat8w-exe改成tomcatappw-exe-然后打开命令行-cd到bin目录下面。注册service服务，service-bat-install就可以了，现在就可以直接运行两个相同版本的tomcat了。" class="headerlink" title="解决办法就是：修改service.bat 将里面所有tomcat8 全部替换成，比如tomatapp，改的名字自己取就可以了，然后再讲bin 目录的tomcat8.exe 改成你之前改的，就比如我之前的tomcatapp.exe, tomcat8w.exe改成tomcatappw.exe,然后打开命令行 cd到bin目录下面。注册service服务，service.bat install就可以了，现在就可以直接运行两个相同版本的tomcat了。"></a>解决办法就是：修改service.bat 将里面所有tomcat8 全部替换成，比如tomatapp，改的名字自己取就可以了，然后再讲bin 目录的tomcat8.exe 改成你之前改的，就比如我之前的tomcatapp.exe, tomcat8w.exe改成tomcatappw.exe,然后打开命令行 cd到bin目录下面。注册service服务，service.bat install就可以了，现在就可以直接运行两个相同版本的tomcat了。</h5><h6 id="注意：每次修改的service-bat-tomcat8都要不同，相同的时候，就会遇到上述的问题"><a href="#注意：每次修改的service-bat-tomcat8都要不同，相同的时候，就会遇到上述的问题" class="headerlink" title="注意：每次修改的service.bat tomcat8都要不同，相同的时候，就会遇到上述的问题"></a>注意：每次修改的service.bat tomcat8都要不同，相同的时候，就会遇到上述的问题</h6>
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/tomcat/">tomcat</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tomcat/">tomcat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-QQ_IP" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/02/05/QQ_IP/" class="article-date">
-      <time datetime="2018-02-05T06:02:01.000Z" itemprop="datePublished">2018-02-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/05/QQ_IP/">如何通过QQ聊天获取对方ip</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h5 id="中午的时候我有个同学的qq被盗，那个时候我要吃饭了，所以没来得及跟骗子继续聊天，所以后来没法通过这个最简单的方法来获取对方ip信息："><a href="#中午的时候我有个同学的qq被盗，那个时候我要吃饭了，所以没来得及跟骗子继续聊天，所以后来没法通过这个最简单的方法来获取对方ip信息：" class="headerlink" title="中午的时候我有个同学的qq被盗，那个时候我要吃饭了，所以没来得及跟骗子继续聊天，所以后来没法通过这个最简单的方法来获取对方ip信息："></a>中午的时候我有个同学的qq被盗，那个时候我要吃饭了，所以没来得及跟骗子继续聊天，所以后来没法通过这个最简单的方法来获取对方ip信息：</h5><h5 id="1-首先我们每个人基本都有电脑，所以可以通过自己的电脑打开任务管理器，然后点击性能，打开资源监视器，可以在网络活动，和Tcp连接可以看qq-exe-和wechat-exe-看到地址和远程地址，只要和对方发送信息或者大图，就可以通过接收字节，和发送字节的流量来判断是哪个exe，从而看到对方地址ip，拿到ip之后，可以在网络上输入ip，就可以看到地址。"><a href="#1-首先我们每个人基本都有电脑，所以可以通过自己的电脑打开任务管理器，然后点击性能，打开资源监视器，可以在网络活动，和Tcp连接可以看qq-exe-和wechat-exe-看到地址和远程地址，只要和对方发送信息或者大图，就可以通过接收字节，和发送字节的流量来判断是哪个exe，从而看到对方地址ip，拿到ip之后，可以在网络上输入ip，就可以看到地址。" class="headerlink" title="1.首先我们每个人基本都有电脑，所以可以通过自己的电脑打开任务管理器，然后点击性能，打开资源监视器，可以在网络活动，和Tcp连接可以看qq.exe 和wechat.exe 看到地址和远程地址，只要和对方发送信息或者大图，就可以通过接收字节，和发送字节的流量来判断是哪个exe，从而看到对方地址ip，拿到ip之后，可以在网络上输入ip，就可以看到地址。"></a>1.首先我们每个人基本都有电脑，所以可以通过自己的电脑打开任务管理器，然后点击性能，打开资源监视器，可以在网络活动，和Tcp连接可以看qq.exe 和wechat.exe 看到地址和远程地址，只要和对方发送信息或者大图，就可以通过接收字节，和发送字节的流量来判断是哪个exe，从而看到对方地址ip，拿到ip之后，可以在网络上输入ip，就可以看到地址。</h5><p><img src="http://wx4.sinaimg.cn/small/006WIPhJly1foxmc6av3vj30pq0odgrh.jpg" alt=""></p>
-<h5 id="2-本来想通过社工库或者socks5或者vpn，但是目前还没学到-。"><a href="#2-本来想通过社工库或者socks5或者vpn，但是目前还没学到-。" class="headerlink" title="2. 本来想通过社工库或者socks5或者vpn，但是目前还没学到-=。"></a>2. 本来想通过社工库或者socks5或者vpn，但是目前还没学到-=。</h5>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/IP/">IP</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QQ/">QQ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2018/02/05/QQ_IP/#more">了解更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-centos7_pxc_mysql" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-centos7_pxc_mysql" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2018/02/05/centos7_pxc_mysql/" class="article-date">
@@ -382,12 +251,27 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/05/centos7_pxc_mysql/">AJAX POST数据中有特殊符号导致数据丢失的解决方法</a>
+    <h1 class="article-title" itemprop="name">
+      AJAX POST数据中有特殊符号导致数据丢失的解决方法
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/PerconaXtraDBCluster/">PerconaXtraDBCluster</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -472,243 +356,202 @@
 
       
       
-    </div>
-    
-    <div class="article-info article-info-index">
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+		    $(".shang_payimg a").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
       
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/PerconaXtraDBCluster/">PerconaXtraDBCluster</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
     </div>
     
   </div>
   
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-data_exists_special_symbols" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/02/05/data_exists_special_symbols/" class="article-date">
-      <time datetime="2018-02-05T00:27:22.000Z" itemprop="datePublished">2018-02-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/05/data_exists_special_symbols/">AJAX POST数据中有特殊符号导致数据丢失的解决方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h5 id="使用Ajax传送数据时，当数据中存在加号-、连接符-amp-或者百分号-时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法："><a href="#使用Ajax传送数据时，当数据中存在加号-、连接符-amp-或者百分号-时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：" class="headerlink" title="使用Ajax传送数据时，当数据中存在加号(+)、连接符(&amp;)或者百分号(%)时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法："></a>使用Ajax传送数据时，当数据中存在加号(+)、连接符(&amp;)或者百分号(%)时，服务器端接收数据时会丢失数据。分析Ajax传送数据的格式与Javascript的语法：</h5><h5 id="1-“-”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”-”会丢失变空格。"><a href="#1-“-”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”-”会丢失变空格。" class="headerlink" title="1. “+”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”+”会丢失变空格。"></a>1. “+”号：JavaScript解析为字符串连接符，所以服务器端接收数据时”+”会丢失变空格。</h5><h5 id="2-“-amp-”号：JavaScript解析为变量连接符，所以服务器端接收数据时-amp-符号以后的数据都会丢失变空格。"><a href="#2-“-amp-”号：JavaScript解析为变量连接符，所以服务器端接收数据时-amp-符号以后的数据都会丢失变空格。" class="headerlink" title="2. “&amp;”号：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;符号以后的数据都会丢失变空格。"></a>2. “&amp;”号：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;符号以后的数据都会丢失变空格。</h5>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2018/02/05/data_exists_special_symbols/#more">了解更多 >></a>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/02/05/centos7_pxc_mysql/">AJAX POST数据中有特殊符号导致数据丢失的解决方法</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Echo_Sxl 的个人博客">Echo_Sxl</a></p>
+        <p><span>发布时间:</span>2018年02月05日 - 08时27分</p>
+        <p><span>最后更新:</span>2018年05月22日 - 11时24分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/02/05/centos7_pxc_mysql/" title="AJAX POST数据中有特殊符号导致数据丢失的解决方法">http://www.songxiaolang.com/2018/02/05/centos7_pxc_mysql/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.songxiaolang.com/2018/02/05/centos7_pxc_mysql/　　作者: Echo_Sxl" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java_execCommand_StreamGobbler" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/02/02/java_execCommand_StreamGobbler/" class="article-date">
-      <time datetime="2018-02-02T14:12:33.000Z" itemprop="datePublished">2018-02-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/02/java_execCommand_StreamGobbler/">java执行cmd命令是遇到一些特殊字符处理丢失</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h4 id="：当时要执行kettle命令的时候，遇到kettle的命令符号丢失-如果是linux环境，使用如下接口："><a href="#：当时要执行kettle命令的时候，遇到kettle的命令符号丢失-如果是linux环境，使用如下接口：" class="headerlink" title="：当时要执行kettle命令的时候，遇到kettle的命令符号丢失,如果是linux环境，使用如下接口："></a>：当时要执行kettle命令的时候，遇到kettle的命令符号丢失,如果是linux环境，使用如下接口：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div></pre></td><td class="code"><pre><div class="line">package com.pactera.common.util;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONObject;</div><div class="line"><span class="keyword">import</span> org.apache.commons.cli.*;</div><div class="line"><span class="keyword">import</span> org.apache.commons.exec.CommandLine;</div><div class="line"><span class="keyword">import</span> org.apache.commons.exec.*;</div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.ByteArrayOutputStream;</div><div class="line"><span class="keyword">import</span> java.util.Collection;</div><div class="line"></div><div class="line"><span class="comment">/**</div><div class="line"> * @author song</div><div class="line"> * @date created in 2018-01-19 18:49</div><div class="line"> */</span></div><div class="line">public <span class="class"><span class="keyword">class</span> <span class="title">ExecuteShell</span> </span>&#123;</div><div class="line">    public <span class="keyword">static</span> JSONObject callCMD(<span class="built_in">String</span> shellInfo) &#123;</div><div class="line">        System.out.println(<span class="string">"Cmd接收到的命令---"</span>+shellInfo);</div><div class="line">        JSONObject json = <span class="keyword">new</span> JSONObject();</div><div class="line">        <span class="built_in">String</span> error = <span class="string">""</span>;</div><div class="line">        int execute = <span class="number">1</span>;</div><div class="line">        <span class="built_in">String</span> out=<span class="string">""</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            CommandLine commandline = CommandLine.parse(shellInfo);</div><div class="line"></div><div class="line">            DefaultExecutor exec = <span class="keyword">new</span> DefaultExecutor();</div><div class="line">            exec.setExitValue(<span class="number">0</span>);</div><div class="line">            ExecuteWatchdog watchdog = <span class="keyword">new</span> ExecuteWatchdog(<span class="number">600</span> * <span class="number">1000</span>);</div><div class="line">            exec.setWatchdog(watchdog);</div><div class="line">            ByteArrayOutputStream outputStream = <span class="keyword">new</span> ByteArrayOutputStream();</div><div class="line">            ByteArrayOutputStream errorStream = <span class="keyword">new</span> ByteArrayOutputStream();</div><div class="line">            PumpStreamHandler streamHandler = <span class="keyword">new</span> PumpStreamHandler(outputStream, errorStream);</div><div class="line">            exec.setStreamHandler(streamHandler);</div><div class="line">            execute = exec.execute(commandline);</div><div class="line">            out = outputStream.toString(<span class="string">"gbk"</span>);</div><div class="line">            error = errorStream.toString(<span class="string">"gbk"</span>);</div><div class="line">            System.out.println(out);</div><div class="line">            System.out.println(error);</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            json.put(<span class="string">"statusCode"</span>, <span class="number">1</span>);</div><div class="line">            json.put(<span class="string">"msg"</span>, <span class="string">"Failed to call shell's command and the return status's is:1 "</span>+error );</div><div class="line">        &#125;</div><div class="line">        json.put(<span class="string">"statusCode"</span> , execute);</div><div class="line">        json.put(<span class="string">"msg"</span> , out);</div><div class="line">        <span class="keyword">return</span>  json;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</div><div class="line">     * 创建commandline对象</div><div class="line">     *</div><div class="line">     * @param args</div><div class="line">     * @return</div><div class="line">     * @throws ParseException</div><div class="line">     */</span></div><div class="line">    private <span class="keyword">static</span> CommandLine getCommandLine(<span class="built_in">String</span> args, Options mergeOptions) throws ParseException &#123;</div><div class="line">        CommandLineParser parser = <span class="keyword">new</span> DefaultParser();</div><div class="line">        HelpFormatter hf = <span class="keyword">new</span> HelpFormatter();</div><div class="line">        hf.printHelp(args, <span class="string">""</span>, mergeOptions, <span class="string">""</span>);</div><div class="line"><span class="comment">//        return parser.parse(mergeOptions, new String[]&#123;args&#125;);</span></div><div class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</div><div class="line">     * 合并options</div><div class="line">     *</div><div class="line">     * @param optionsArgs options项</div><div class="line">     * @return 合并后的options</div><div class="line">     */</span></div><div class="line">    private <span class="keyword">static</span> Options mergeOptions(Options... optionsArgs) &#123;</div><div class="line">        Options allOptions = <span class="keyword">new</span> Options(); <span class="comment">// 合并所有options，如果不合并单独使用，会出现问题</span></div><div class="line">        <span class="keyword">for</span> (Options options : optionsArgs) &#123;</div><div class="line">            Collection&lt;Option&gt; options1 = options.getOptions();</div><div class="line">            <span class="keyword">for</span> (Option option : options1) &#123;</div><div class="line">                allOptions.addOption(option);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> allOptions;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Test</div><div class="line">    public <span class="keyword">void</span> test() throws ParseException &#123;</div><div class="line">        <span class="comment">// 模拟命令行参数</span></div><div class="line">        <span class="built_in">String</span> args = <span class="string">"sdo"</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  <span class="comment">/*  public static void main(String[] args) throws ParseException &#123;</div><div class="line">        String argss[]=&#123;"-t  1000"&#125;;</div><div class="line">        //定义</div><div class="line">        Options options = new Options();</div><div class="line">        options.addOption("ipconfig", false, "list help");//false代表不强制有</div><div class="line">        options.addOption("ipconfig", true, "set time on system");</div><div class="line"></div><div class="line">        //解析</div><div class="line">        //1.3.1中已经弃用针对不同格式入参对应的解析器</div><div class="line">        //CommandLineParser parser = new PosixParser();</div><div class="line">        CommandLineParser parser = new DefaultParser();</div><div class="line">        CommandLine cmd = parser.parse(options, args);</div><div class="line"></div><div class="line">        //查询交互</div><div class="line">        //你的程序应当写在这里，从这里启动</div><div class="line">            String formatstr = "ipconfig";</div><div class="line">            HelpFormatter hf = new HelpFormatter();</div><div class="line">            hf.printHelp(formatstr, "", options, "");</div><div class="line">            return;</div><div class="line">    &#125;*/</span></div><div class="line"></div><div class="line"></div><div class="line">    public <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="built_in">String</span>[] args) &#123;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="built_in">String</span> command = <span class="string">" E:\\tool\\data-integration\\kitchen.bat /rep:kettle /dir:/ /user:admin /pass:admin /level:Basic /job:EDW_FENFA_JOB -param:\"DBTYPE=ORACLE\"  -param:\"TABLE_NAME=omdata.S24_SEAT_HISTORY\"  -param:\"EDW_TABLE_NAME=S24_SEAT_HISTORY\"  -param:\"COLUMNS=T.ID,T.BUS_ID,T.LAST_REST,T.REST,T.LAST_UPDATETIME,T.UPDATE_TIME\"  -param:\"USER_NAME=yyy\"  -param:\"CONDITIONS=TO_DATE('20160310','YYYYMMDD')=T.ETL_DT\"   -param:\"DATA_DT=20160310\""</span>;</div><div class="line">            CommandLine commandline = CommandLine.parse(command);</div><div class="line"></div><div class="line">            DefaultExecutor exec = <span class="keyword">new</span> DefaultExecutor();</div><div class="line">            exec.setExitValue(<span class="number">0</span>);</div><div class="line">            ExecuteWatchdog watchdog = <span class="keyword">new</span> ExecuteWatchdog(<span class="number">60</span>*<span class="number">1000</span>);</div><div class="line">            exec.setWatchdog(watchdog);</div><div class="line"></div><div class="line">            ByteArrayOutputStream outputStream = <span class="keyword">new</span> ByteArrayOutputStream();</div><div class="line">            ByteArrayOutputStream errorStream = <span class="keyword">new</span> ByteArrayOutputStream();</div><div class="line">            PumpStreamHandler streamHandler = <span class="keyword">new</span> PumpStreamHandler(outputStream,errorStream);</div><div class="line">            exec.setStreamHandler(streamHandler);</div><div class="line"></div><div class="line">            int execute = exec.execute(commandline);</div><div class="line"></div><div class="line">            <span class="built_in">String</span> out = outputStream.toString(<span class="string">"gbk"</span>);</div><div class="line">            <span class="built_in">String</span> error = errorStream.toString(<span class="string">"gbk"</span>);</div><div class="line"></div><div class="line"></div><div class="line">            System.out.println(<span class="string">"out"</span>+out);</div><div class="line">            System.out.println(<span class="string">"error"</span>+error);</div><div class="line">            System.out.println(<span class="string">"exit: "</span> + execute);</div><div class="line"></div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line"></div><div class="line"></div><div class="line">            <span class="keyword">return</span>;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="1-我当时的测试环境是Windows，使用了上面的接口处理kettle命令，这个-CommandLine-commandline-CommandLine-parse-shellInfo-的时候，命令还是正常的，到了处理的时候execute-exec-execute-commandline-就导致了命令符号的一些丢失，比如；"><a href="#1-我当时的测试环境是Windows，使用了上面的接口处理kettle命令，这个-CommandLine-commandline-CommandLine-parse-shellInfo-的时候，命令还是正常的，到了处理的时候execute-exec-execute-commandline-就导致了命令符号的一些丢失，比如；" class="headerlink" title="1. 我当时的测试环境是Windows，使用了上面的接口处理kettle命令，这个 CommandLine commandline = CommandLine.parse(shellInfo);的时候，命令还是正常的，到了处理的时候execute = exec.execute(commandline);就导致了命令符号的一些丢失，比如；="></a>1. 我当时的测试环境是Windows，使用了上面的接口处理kettle命令，这个 CommandLine commandline = CommandLine.parse(shellInfo);的时候，命令还是正常的，到了处理的时候execute = exec.execute(commandline);就导致了命令符号的一些丢失，比如；=</h5><h5 id="2-后来想了很久，查找很多资料换了一种方式处理，不能通过转义字符来处理，为什么不换一种处理cmd命令的方式了，后来换了如下方式在windoes就可以了。"><a href="#2-后来想了很久，查找很多资料换了一种方式处理，不能通过转义字符来处理，为什么不换一种处理cmd命令的方式了，后来换了如下方式在windoes就可以了。" class="headerlink" title="2. 后来想了很久，查找很多资料换了一种方式处理，不能通过转义字符来处理，为什么不换一种处理cmd命令的方式了，后来换了如下方式在windoes就可以了。"></a>2. 后来想了很久，查找很多资料换了一种方式处理，不能通过转义字符来处理，为什么不换一种处理cmd命令的方式了，后来换了如下方式在windoes就可以了。</h5>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/StreamGobbler/">StreamGobbler</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-execCommand/">java_execCommand</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2018/02/02/java_execCommand_StreamGobbler/#more">了解更多 >></a>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
         </p>
-      
-      <div class="clearfix"></div>
     </div>
-    
-  </div>
+
+
+
+<nav id="article-nav">
   
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Spring_Quartz_Job_Autowired" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/01/22/Spring_Quartz_Job_Autowired/" class="article-date">
-      <time datetime="2018-01-22T05:27:22.000Z" itemprop="datePublished">2018-01-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+    <a href="/2018/02/05/QQ_IP/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
         
+          如何通过QQ聊天获取对方ip
+        
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/22/Spring_Quartz_Job_Autowired/">Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案</a>
-    </h1>
   
+    <a href="/2018/02/05/data_exists_special_symbols/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">AJAX POST数据中有特殊符号导致数据丢失的解决方法</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案"><a href="#Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案" class="headerlink" title="Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案"></a>Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案</h3><h4 id="1-当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。"><a href="#1-当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。" class="headerlink" title="1. 当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。"></a>1. 当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。</h4><h4 id="2-利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。"><a href="#2-利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。" class="headerlink" title="2. 利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。"></a>2. 利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。</h4><p>原因是Quartz初始化是自己的JobContext，不同于Spring的ApplicationContext，所以无法直接注入</p>
-<h4 id="3-具体做法是直接getBean-的方式来获取service的"><a href="#3-具体做法是直接getBean-的方式来获取service的" class="headerlink" title="3.具体做法是直接getBean()的方式来获取service的"></a>3.具体做法是直接getBean()的方式来获取service的</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public <span class="class"><span class="keyword">class</span> <span class="title">DispatchWork</span> <span class="title">implements</span> <span class="title">Job</span> </span>&#123;</div><div class="line">     @Override</div><div class="line">    public <span class="keyword">void</span> execute(JobExecutionContext jobExecutionContext) throws JobExecutionException &#123;</div><div class="line">        <span class="built_in">String</span> jobName = jobExecutionContext.getJobDetail().getKey().getName();</div><div class="line">        <span class="built_in">String</span> group = jobExecutionContext.getTrigger().getKey().getGroup();</div><div class="line">         RunKettleSerive  runKettleSerive= SpringContextHolder.getBean(RunKettleSerive.class);</div><div class="line">         runKettleSerive.runKettleScript(jobName,group);</div><div class="line">      <span class="comment">/*  runKettleSerive.runKettleScript(jobName,group);*/</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="4-关键代码就是RunKettleSerive-runKettleSerive-SpringContextHolder-getBean-RunKettleSerive-class-。"><a href="#4-关键代码就是RunKettleSerive-runKettleSerive-SpringContextHolder-getBean-RunKettleSerive-class-。" class="headerlink" title="4.关键代码就是RunKettleSerive  runKettleSerive= SpringContextHolder.getBean(RunKettleSerive.class)。"></a>4.关键代码就是RunKettleSerive  runKettleSerive= SpringContextHolder.getBean(RunKettleSerive.class)。</h3>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Spring/">Spring</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Quartz/">Quartz</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2018/01/22/Spring_Quartz_Job_Autowired/#more">了解更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
   
 </article>
 
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一步：查看当前os环境"><span class="toc-number">1.</span> <span class="toc-text">第一步：查看当前os环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二步：配置运行环境"><span class="toc-number">2.</span> <span class="toc-text">第二步：配置运行环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二步：配置运行环境-1"><span class="toc-number">3.</span> <span class="toc-text">第二步：配置运行环境</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#说明"><span class="toc-number">3.1.</span> <span class="toc-text">说明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三步-修改selinux配置文件"><span class="toc-number">4.</span> <span class="toc-text">第三步 修改selinux配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四步-分发配置文件到其余节点"><span class="toc-number">5.</span> <span class="toc-text">第四步 分发配置文件到其余节点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#说明-1"><span class="toc-number">5.1.</span> <span class="toc-text">说明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第五步-分别3节点配置防火墙，如下示例"><span class="toc-number">6.</span> <span class="toc-text">第五步 分别3节点配置防火墙，如下示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第五步-配置时间同步服务-可以不操作，看自己需求"><span class="toc-number">7.</span> <span class="toc-text">第五步 配置时间同步服务(可以不操作，看自己需求)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第五步-分别重启3节点"><span class="toc-number">8.</span> <span class="toc-text">第五步 分别重启3节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第六步-安装Percona-XtraDB-Cluster-5-7"><span class="toc-number">9.</span> <span class="toc-text">第六步 安装Percona XtraDB Cluster 5.7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第七步-配置mysql及集群配置文件"><span class="toc-number">10.</span> <span class="toc-text">第七步 配置mysql及集群配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第七步-启动PXC集群"><span class="toc-number">11.</span> <span class="toc-text">第七步 启动PXC集群</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第八步-集群验证"><span class="toc-number">12.</span> <span class="toc-text">第八步 集群验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#错误信息归类"><span class="toc-number"></span> <span class="toc-text">错误信息归类</span></a>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
 
 
 
 
 
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 
 
 
-  
-  
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'EchoXiaoLang',
+      repo: 'about.githut.io',
+      oauth: {
+        client_id: '49c24f46093564b79d7e',
+        client_secret: '30879beb4a55acf9dba4f214011a3d234a4a3503',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/02/05/QQ_IP/" title="上一篇: 如何通过QQ聊天获取对方ip">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2018/02/05/data_exists_special_symbols/" title="下一篇: AJAX POST数据中有特殊符号导致数据丢失的解决方法">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/03/14/tomcat_service_install/">如何在window环境下启动相同版本的tomcat.exe程序</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/05/QQ_IP/">如何通过QQ聊天获取对方ip</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/05/centos7_pxc_mysql/">AJAX POST数据中有特殊符号导致数据丢失的解决方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/05/data_exists_special_symbols/">AJAX POST数据中有特殊符号导致数据丢失的解决方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/02/java_execCommand_StreamGobbler/">java执行cmd命令是遇到一些特殊字符处理丢失</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/Spring_Quartz_Job_Autowired/">Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
