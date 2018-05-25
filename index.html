@@ -152,7 +152,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/QQ/" style="font-size: 10px;">QQ</a> <a href="/tags/Quartz/" style="font-size: 10px;">Quartz</a> <a href="/tags/centos7/" style="font-size: 10px;">centos7</a> <a href="/tags/java-execCommand/" style="font-size: 10px;">java_execCommand</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/文章/" style="font-size: 20px;">文章</a>
+                        <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Keepalive/" style="font-size: 10px;">Keepalive</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/QQ/" style="font-size: 10px;">QQ</a> <a href="/tags/Quartz/" style="font-size: 10px;">Quartz</a> <a href="/tags/centos7/" style="font-size: 10px;">centos7</a> <a href="/tags/java-execCommand/" style="font-size: 10px;">java_execCommand</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/文章/" style="font-size: 20px;">文章</a>
                     </div>
                 </section>
                 
@@ -235,6 +235,74 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Nginx_Keepalive" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/05/25/Nginx_Keepalive/" class="article-date">
+      <time datetime="2018-05-25T10:30:39.000Z" itemprop="datePublished">2018-05-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/25/Nginx_Keepalive/">Nginx+Keepalive 实现高可用负载均衡方案</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h5 id="Nginx-Keepalive-实现高可用负载均衡方案"><a href="#Nginx-Keepalive-实现高可用负载均衡方案" class="headerlink" title="Nginx+Keepalive 实现高可用负载均衡方案"></a>Nginx+Keepalive 实现高可用负载均衡方案</h5><p>#####规划<br>| 端口 |主机名|IP地址| 说明 |<br>| - | - |<br>|  | ryxx-jkser1 |192.168.11.102| Nginx主机 |<br>|  | ryxx-jkser2 |192.168.11.103|    Nginx备机 |<br>| 8080,.. |    ryxx-fzjh-1 | 192.168.11.107 |    应用服务机A|<br>| 8080,…  | ryxx-fzjh-3 | 192.168.11.108 |    应用服务机B|<br>|    |    |192.168.11.109（网段一样）|    Keepalived| 虚拟出的ip（VIP）</p>
+<h5 id="192-168-11-107，和108的tomcat请自行部署并且开放端口此文档默认是8080，根据实际情而定。"><a href="#192-168-11-107，和108的tomcat请自行部署并且开放端口此文档默认是8080，根据实际情而定。" class="headerlink" title="192.168.11.107，和108的tomcat请自行部署并且开放端口此文档默认是8080，根据实际情而定。"></a>192.168.11.107，和108的tomcat请自行部署并且开放端口此文档默认是8080，根据实际情而定。</h5><p>##开放端口命令，提供参考<br>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Keepalive/">Keepalive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2018/05/25/Nginx_Keepalive/#more">了解更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-centos7_pxc_mysql" class="article article-type-post" itemscope itemprop="blogPost">
   

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.songxiaolang.com/"/>
-  <updated>2018-05-22T07:42:44.216Z</updated>
+  <updated>2018-05-25T11:00:53.117Z</updated>
   <id>http://www.songxiaolang.com/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Nginx+Keepalive 实现高可用负载均衡方案</title>
+    <link href="http://www.songxiaolang.com/2018/05/25/Nginx_Keepalive/"/>
+    <id>http://www.songxiaolang.com/2018/05/25/Nginx_Keepalive/</id>
+    <published>2018-05-25T10:30:39.000Z</published>
+    <updated>2018-05-25T11:00:53.117Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;Nginx-Keepalive-实现高可用负载均衡方案&quot;&gt;&lt;a href=&quot;#Nginx-Keepalive-实现高可用负载均衡方案&quot; class=&quot;headerlink&quot; title=&quot;Nginx+Keepalive 实现高可用负载均衡方案&quot;&gt;&lt;/a&gt;Nginx+Keepalive 实现高可用负载均衡方案&lt;/h5&gt;&lt;p&gt;#####规划&lt;br&gt;| 端口 |主机名|IP地址| 说明 |&lt;br&gt;| - | - |&lt;br&gt;|  | ryxx-jkser1 |192.168.11.102| Nginx主机 |&lt;br&gt;|  | ryxx-jkser2 |192.168.11.103|    Nginx备机 |&lt;br&gt;| 8080,.. |    ryxx-fzjh-1 | 192.168.11.107 |    应用服务机A|&lt;br&gt;| 8080,…  | ryxx-fzjh-3 | 192.168.11.108 |    应用服务机B|&lt;br&gt;|    |    |192.168.11.109（网段一样）|    Keepalived| 虚拟出的ip（VIP）&lt;/p&gt;
+&lt;h5 id=&quot;192-168-11-107，和108的tomcat请自行部署并且开放端口此文档默认是8080，根据实际情而定。&quot;&gt;&lt;a href=&quot;#192-168-11-107，和108的tomcat请自行部署并且开放端口此文档默认是8080，根据实际情而定。&quot; class=&quot;headerlink&quot; title=&quot;192.168.11.107，和108的tomcat请自行部署并且开放端口此文档默认是8080，根据实际情而定。&quot;&gt;&lt;/a&gt;192.168.11.107，和108的tomcat请自行部署并且开放端口此文档默认是8080，根据实际情而定。&lt;/h5&gt;&lt;p&gt;##开放端口命令，提供参考&lt;br&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://www.songxiaolang.com/categories/JavaScript/"/>
+    
+    
+      <category term="Nginx" scheme="http://www.songxiaolang.com/tags/Nginx/"/>
+    
+      <category term="Keepalive" scheme="http://www.songxiaolang.com/tags/Keepalive/"/>
+    
+  </entry>
   
   <entry>
     <title>基于CentOS7安装Percona XtraDB Cluster5.7</title>
