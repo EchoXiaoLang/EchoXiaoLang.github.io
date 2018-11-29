@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.songxiaolang.com/"/>
-  <updated>2018-05-25T11:11:32.855Z</updated>
+  <updated>2018-11-29T09:34:45.081Z</updated>
   <id>http://www.songxiaolang.com/</id>
   
   <author>
@@ -14,6 +14,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于Linux 升级openssl与openssh</title>
+    <link href="http://www.songxiaolang.com/2018/11/29/linux_openssl_openssh/"/>
+    <id>http://www.songxiaolang.com/2018/11/29/linux_openssl_openssh/</id>
+    <published>2018-11-29T09:34:42.000Z</published>
+    <updated>2018-11-29T09:34:45.081Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;关于Linux-升级openssl与openssh&quot;&gt;&lt;a href=&quot;#关于Linux-升级openssl与openssh&quot; class=&quot;headerlink&quot; title=&quot;##关于Linux 升级openssl与openssh&quot;&gt;&lt;/a&gt;##关于Linux
+    
+    </summary>
+    
+      <category term="openssl" scheme="http://www.songxiaolang.com/categories/openssl/"/>
+    
+    
+      <category term="文章" scheme="http://www.songxiaolang.com/tags/%E6%96%87%E7%AB%A0/"/>
+    
+      <category term="openssh" scheme="http://www.songxiaolang.com/tags/openssh/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于pxc5.6 升级到pxc5.7的问题</title>
+    <link href="http://www.songxiaolang.com/2018/11/29/pxc_mysql5.7/"/>
+    <id>http://www.songxiaolang.com/2018/11/29/pxc_mysql5.7/</id>
+    <published>2018-11-29T09:03:41.000Z</published>
+    <updated>2018-11-29T09:04:23.090Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;##关于pxc5.6 升级到pxc5.7的问题&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;the row size is 8162 which is greater than maximum allowed size (8126&lt;/li&gt;
+&lt;li&gt;that res
+    
+    </summary>
+    
+      <category term="mysql5.7" scheme="http://www.songxiaolang.com/categories/mysql5-7/"/>
+    
+    
+      <category term="文章" scheme="http://www.songxiaolang.com/tags/%E6%96%87%E7%AB%A0/"/>
+    
+      <category term="pxc" scheme="http://www.songxiaolang.com/tags/pxc/"/>
+    
+  </entry>
   
   <entry>
     <title>Nginx+Keepalive 实现高可用负载均衡方案</title>
@@ -45,7 +93,7 @@
     <link href="http://www.songxiaolang.com/2018/05/22/centos7_pxc_mysql/"/>
     <id>http://www.songxiaolang.com/2018/05/22/centos7_pxc_mysql/</id>
     <published>2018-05-22T07:39:38.000Z</published>
-    <updated>2018-05-25T11:11:50.425Z</updated>
+    <updated>2018-11-29T09:06:50.112Z</updated>
     
     <summary type="html">
     
@@ -69,7 +117,7 @@
     <link href="http://www.songxiaolang.com/2018/05/22/Spring_Quartz_Job_Autowired/"/>
     <id>http://www.songxiaolang.com/2018/05/22/Spring_Quartz_Job_Autowired/</id>
     <published>2018-05-22T03:29:03.000Z</published>
-    <updated>2018-05-22T03:29:07.234Z</updated>
+    <updated>2018-05-22T03:29:07.235Z</updated>
     
     <summary type="html">
     
@@ -93,7 +141,7 @@
     <link href="http://www.songxiaolang.com/2018/03/14/tomcat_service_install/"/>
     <id>http://www.songxiaolang.com/2018/03/14/tomcat_service_install/</id>
     <published>2018-03-14T11:34:58.000Z</published>
-    <updated>2018-03-14T11:52:14.564Z</updated>
+    <updated>2018-03-14T11:52:14.565Z</updated>
     
     <summary type="html">
     
@@ -115,7 +163,7 @@
     <link href="http://www.songxiaolang.com/2018/02/05/QQ_IP/"/>
     <id>http://www.songxiaolang.com/2018/02/05/QQ_IP/</id>
     <published>2018-02-05T06:02:01.000Z</published>
-    <updated>2018-03-01T13:23:57.046Z</updated>
+    <updated>2018-03-01T13:23:57.047Z</updated>
     
     <summary type="html">
     
