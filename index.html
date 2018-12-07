@@ -263,8 +263,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Linux下允许或禁止root用户远程登录的方法"><a href="#Linux下允许或禁止root用户远程登录的方法" class="headerlink" title="Linux下允许或禁止root用户远程登录的方法"></a>Linux下允许或禁止root用户远程登录的方法</h1><h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>）vim /etc/ssh/sshd_config，</div><div class="line">将PermitRootLogin的值改成yes，并保存</div><div class="line">PermitRootLogin yes</div><div class="line"><span class="number">2</span>）service sshd restart</div><div class="line">这样，就能用root直接ssh登录了</div><div class="line">如果在<span class="number">1</span>）中，将PermitRootLogin的值设成no，就不能用root直接ssh登录了</div></pre></td></tr></table></figure>
-
+              <h1 id="Linux下允许或禁止root用户远程登录的方法"><a href="#Linux下允许或禁止root用户远程登录的方法" class="headerlink" title="Linux下允许或禁止root用户远程登录的方法"></a>Linux下允许或禁止root用户远程登录的方法</h1><h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>）vim /etc/ssh/sshd_config，</div><div class="line">将PermitRootLogin的值改成yes，并保存</div><div class="line">PermitRootLogin yes</div><div class="line"><span class="number">2</span>）service sshd restart</div><div class="line">这样，就能用root直接ssh登录了</div><div class="line">如果在<span class="number">1</span>）中，将PermitRootLogin的值设成no，就不能用root直接ssh登录了</div></pre></td></tr></table></figure>
+          
       
       
     </div>
@@ -282,6 +282,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/root/">root</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a  href="/2018/12/07/root_login/#more">了解更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -326,131 +330,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>##pxc5.7离线安装<br><strong>pxc</strong>5.7yum安装已经在之前的博客里面写过了，接下来介绍通过无外网环境，只能使用内网yum，但是yum中缺少pxc5.7的情况下，需要自己下载安装包来进行安装pxc5.7.</p>
-<h2 id="——-5-7yum安装文档"><a href="#——-5-7yum安装文档" class="headerlink" title=" —— 5.7yum安装文档"></a> —— <a href="https://www.songxiaolang.com/2018/05/22/centos7_pxc_mysql/">5.7yum安装文档</a></h2><p>###服务器准备<br>| 服务器  |<br>| - |<br>| <strong>.168.124.16 |<br>| </strong>.168.124.17  |</p>
-<ul>
-<li><p>[x] 主机名修改</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">两台机器默认都是localhsot，分别修改两台主机名。名字自定义不要重复</div><div class="line">命令格式 ：sudo hostnamectl set-hostname &lt;newhostname&gt;</div><div class="line"><span class="number">16</span> 执行  sudo hostnamectl set-hostname pxc_mysql_16</div><div class="line"><span class="number">17</span> 执行  sudo hostnamectl set-hostname pxc_mysql_17·</div><div class="line">检查方式  hostname   或者  reboot 重启查看</div></pre></td></tr></table></figure>
-</li>
-<li><p>[x] 开启防火墙</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">systemctl start firewalld</div><div class="line">firewall-cmd --add-port=<span class="number">3306</span>/tcp --permanent</div><div class="line">firewall-cmd --add-port=<span class="number">4567</span>/tcp --permanent</div><div class="line">firewall-cmd --add-port=<span class="number">4568</span>/tcp --permanent</div><div class="line">firewall-cmd --add-port=<span class="number">4444</span>/tcp --permanent</div><div class="line">firewall-cmd --reload</div></pre></td></tr></table></figure>
-</li>
-<li><p>[x] 添加host 两台都要</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vim /etc/hosts</div><div class="line">**<span class="number">.172</span><span class="number">.19</span><span class="number">.16</span> pxc_mysql_16</div><div class="line">**<span class="number">.172</span><span class="number">.19</span><span class="number">.17</span> pxc_mysql_17</div><div class="line"><span class="comment">#私有源地址</span></div><div class="line">**<span class="number">.117</span><span class="number">.120</span><span class="number">.246</span> linux.siyou.**.**</div></pre></td></tr></table></figure>
-</li>
-<li><p>[x] 配置内网yum</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vim /etc/hosts</div><div class="line">**<span class="number">.172</span><span class="number">.19</span><span class="number">.16</span> pxc_mysql_16</div><div class="line">**<span class="number">.172</span><span class="number">.19</span><span class="number">.17</span> pxc_mysql_17</div></pre></td></tr></table></figure>
-</li>
-<li><p>[x] 更改私有源地址 可选</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">参考地址：https://gitlab.com/XDOSC/WIFI/wikis/mirror-help/centos</div></pre></td></tr></table></figure>
-<ul>
-<li>[x]  安装依赖</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum install -y git scons gcc* gcc-c++ openssl* check cmake bison \</div><div class="line">boost-devel asio-devel libaio-devel ncurses-devel readline-devel pam-devel \</div><div class="line">socat perl-time-hires perl-io-socket-ssl.noarch perl-dbd-mysql.x86_64</div></pre></td></tr></table></figure>
-<ul>
-<li>[x] 文件准备</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">文件<span class="number">1</span>：libev<span class="number">-4.15</span><span class="number">-1.</span>el6.rf.x86_64.rpm</div><div class="line">文件<span class="number">2</span>：percona-xtrabackup<span class="number">-24</span><span class="number">-2.4</span><span class="number">.11</span><span class="number">-1.</span>el7.x86_64.rpm</div><div class="line">文件<span class="number">3</span>：Percona-XtraDB-Cluster<span class="number">-5.7</span><span class="number">.23</span>-rel23<span class="number">-31.31</span><span class="number">.2</span>.Linux.x86_64.ssl101.tar.gz</div></pre></td></tr></table></figure>
-<ul>
-<li>[x] 文件安装</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">放到/opt/mysql 目录</div><div class="line">rpm -ivh libev<span class="number">-4.15</span><span class="number">-1.</span>el6.rf.x86_64.rpm </div><div class="line">rpm -ivh percona-xtrabackup<span class="number">-24</span><span class="number">-2.4</span><span class="number">.11</span><span class="number">-1.</span>el7.x86_64.rpm</div><div class="line">mv Percona-XtraDB-Cluster<span class="number">-5.7</span><span class="number">.23</span>-rel23<span class="number">-31.31</span><span class="number">.2</span>.Linux.x86_64.ssl101.tar.gz  usr/local</div><div class="line">cd /usr/local/</div><div class="line">tar zxvf Percona-XtraDB-Cluster<span class="number">-5.7</span><span class="number">.23</span>-rel23<span class="number">-31.31</span><span class="number">.2</span>.Linux.x86_64.ssl101.tar.gz </div><div class="line">ln -s Percona-XtraDB-Cluster<span class="number">-5.7</span><span class="number">.23</span>-rel23<span class="number">-31.31</span><span class="number">.2</span>.Linux.x86_64.ssl101 pxc_mysql</div><div class="line">创建用户，新建文件夹请授权【<span class="number">2</span>个节点都要操作】 ：</div><div class="line">[root@localhost ~]<span class="comment"># userdel mysql</span></div><div class="line">[root@localhost ~]<span class="comment"># groupadd mysql</span></div><div class="line">[root@localhost ~]<span class="comment"># useradd -g mysql mysql</span></div><div class="line">[root@localhost ~]<span class="comment"># passwd mysql</span></div><div class="line"><span class="comment">##密码记住之后切换用户的时候需要用到</span></div><div class="line">[root@localhost ~]<span class="comment"># mkdir -p /usr/local/pxc_mysql/&#123;data,logs,tmp&#125;</span></div><div class="line">[root@localhost ~]<span class="comment"># mkdir -p /usr/local/pxc_mysql/logs/binlog</span></div><div class="line">[root@localhost ~]<span class="comment"># chown -R mysql:mysql /usr/local/pxc_mysql/</span></div><div class="line">[root@localhost ~]<span class="comment"># chmod -R +x /usr/local/pxc_mysql/</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>[x] 配置服务器之间ssh登录无密码验证</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">ssh-keygen实现两台主机之间相互免密钥登录，保证两台机之间能ping通</div><div class="line"><span class="number">1</span>)在所有的主机上执行：</div><div class="line"><span class="comment"># ssh-keygen -t rsa</span></div><div class="line"><span class="number">2</span>)将所有机子上公钥（id_rsa.pub）导到一个主机的/root/.ssh/authorized_keys文件中,然后将authorized_keys分别拷贝到所有主机上，以<span class="number">17</span> 服务器命令为例子，<span class="number">16</span>服务器上只要改用<span class="number">17</span>的ip就可以了。</div><div class="line">cat /root/.ssh/id_rsa.pub &gt;&gt; /root/.ssh/authorized_keys</div><div class="line">ssh <span class="number">10.172</span><span class="number">.19</span><span class="number">.16</span> cat /root/.ssh/id_rsa.pub &gt;&gt; /root/.ssh/authorized_keys</div><div class="line">scp /root/.ssh/authorized_keys <span class="number">10.172</span><span class="number">.19</span><span class="number">.16</span>:/root/.ssh/authorized_keys</div><div class="line">scp /root/.ssh/authorized_keys <span class="number">10.172</span><span class="number">.19</span><span class="number">.16</span>:/root/.ssh/authorized_keys</div><div class="line">两台服务器都要</div><div class="line">以<span class="number">16</span> 服务器命令为例子，<span class="number">17</span>服务器上只要改用<span class="number">16</span>的ip就可以了。</div><div class="line">cat /root/.ssh/id_rsa.pub &gt;&gt; /root/.ssh/authorized_keys</div><div class="line">ssh <span class="number">10.172</span><span class="number">.19</span><span class="number">.17</span> cat /root/.ssh/id_rsa.pub &gt;&gt; /root/.ssh/authorized_keys</div><div class="line">scp /root/.ssh/authorized_keys <span class="number">10.172</span><span class="number">.19</span><span class="number">.17</span>:/root/.ssh/authorized_keys</div><div class="line">scp /root/.ssh/authorized_keys <span class="number">10.172</span><span class="number">.19</span><span class="number">.17</span>:/root/.ssh/authorized_keys</div><div class="line">在<span class="number">16</span>上测试：ssh <span class="number">10.172</span><span class="number">.19</span><span class="number">.17</span></div></pre></td></tr></table></figure>
-<ul>
-<li>[x] 重启服务器</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">reboot</div></pre></td></tr></table></figure>
-<ul>
-<li>[x] 配置my.cnf</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line">两台服务都要执行引链</div><div class="line">ln -s /usr/local/pxc_mysql/bin/mysql  /usr/bin</div><div class="line">ln -s /usr/local/Percona-XtraDB-Cluster<span class="number">-5.7</span><span class="number">.23</span>-rel23<span class="number">-31.31</span><span class="number">.2</span>.Linux.x86_64.ssl101/data/mysql.sock  /tmp/mysql.sock</div><div class="line"><span class="number">3</span>、切换mysql用户创建my.cnf ，两台都需要此操作修改点看注释</div><div class="line">su mysql</div><div class="line">输入密码为之前创建的时候设置的</div><div class="line">cd /usr/local/pxc_mysql/</div><div class="line">vi  my.cnf</div><div class="line"><span class="comment"># Template my.cnf for PXC</span></div><div class="line"><span class="comment"># Edit to your requirements.</span></div><div class="line">[client]</div><div class="line">socket=/usr/local/pxc_mysql/data</div><div class="line">[mysqld]</div><div class="line"><span class="comment">#需要修改点节点一般设置为服务的ip最后两三位，两台不一致</span></div><div class="line">server-id=<span class="number">17</span> </div><div class="line">port = <span class="number">3306</span>  <span class="comment">#默认</span></div><div class="line">basedir=/usr/local/pxc_mysql</div><div class="line">datadir=/usr/local/pxc_mysql/data</div><div class="line">socket=/usr/local/pxc_mysql/data/mysql.sock</div><div class="line">log-error=/usr/local/pxc_mysql/data/mysqld.log</div><div class="line">pid-file=/usr/local/pxc_mysql/data/mysqld.pid</div><div class="line">log-bin=/usr/local/pxc_mysql/logs</div><div class="line">slow_query_log_file = /usr/local/pxc_mysql/data/slow.log</div><div class="line">log_slave_updates</div><div class="line">expire_logs_days=<span class="number">7</span></div><div class="line">binlog_format=ROW</div><div class="line">innodb_buffer_pool_size = <span class="number">1524</span>M</div><div class="line">lower_case_table_names=<span class="number">1</span></div><div class="line"><span class="comment">#pxc</span></div><div class="line">wsrep_provider=/usr/local/pxc_mysql/lib/libgalera_smm.so  </div><div class="line">wsrep_cluster_name=pxc-nie<span class="comment">#集群名字：两台服务器一样即可</span></div><div class="line"><span class="comment">#集群之间的IP，建议将本机ip放在最后。</span></div><div class="line">wsrep_cluster_address=gcomm://<span class="number">10.172</span><span class="number">.19</span><span class="number">.16</span>,<span class="number">10.172</span><span class="number">.19</span><span class="number">.17</span></div><div class="line">wsrep_node_name=pxc_mysql_17 <span class="comment">#本主机名开始修改的 两台不一样</span></div><div class="line">wsrep_node_address=<span class="number">10.172</span><span class="number">.19</span><span class="number">.17</span>  <span class="comment">#本机IP两台不一样</span></div><div class="line">wsrep_sst_method=xtrabackup-v2 <span class="comment">#参数可百度。最优参数这个</span></div><div class="line">wsrep_sst_auth=pxc:echo@<span class="number">2018</span> <span class="comment">#数据同步用户</span></div><div class="line">pxc_strict_mode=PERMISSIVE<span class="comment">#参数可百度</span></div><div class="line">binlog_format=ROW </div><div class="line">default_storage_engine=InnoDB</div><div class="line">innodb_buffer_pool_size = <span class="number">60</span>G </div><div class="line">sql_mode=STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER</div><div class="line"><span class="comment">#ROW_FORMAT = DYNAMIC</span></div><div class="line">binlog_format = row</div><div class="line">max_binlog_size = <span class="number">512</span>M</div><div class="line">expire-logs-days = <span class="number">7</span></div><div class="line">slave-net-timeout=<span class="number">30</span></div><div class="line">skip-external-locking</div><div class="line">skip_name_resolve = <span class="number">1</span></div><div class="line">default-storage-engine = InnoDB</div><div class="line"> wait_timeout=<span class="number">3600</span></div><div class="line"> interactive_timeout=<span class="number">3600</span></div><div class="line"> connect_timeout = <span class="number">20</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#######per_thread_buffers#####################</span></div><div class="line">max_connections=<span class="number">3000</span></div><div class="line">max_user_connections=<span class="number">3000</span></div><div class="line">max_connect_errors=<span class="number">3000</span></div><div class="line"><span class="comment">#</span></div><div class="line">max_allowed_packet = <span class="number">64</span>M</div><div class="line">table_open_cache = <span class="number">6144</span></div><div class="line">table_definition_cache = <span class="number">4096</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">################InnoDB###########################</span></div><div class="line">innodb_buffer_pool_instances    = <span class="number">8</span></div><div class="line">innodb_flush_method = O_DIRECT</div><div class="line">innodb_io_capacity = <span class="number">300</span>  </div><div class="line">innodb_max_dirty_pages_pct = <span class="number">80</span></div><div class="line">innodb_log_file_size = <span class="number">1024</span>M </div><div class="line">innodb_log_buffer_size = <span class="number">512</span>M</div><div class="line">innodb_log_files_in_group = <span class="number">3</span></div><div class="line">innodb_flush_log_at_trx_commit = <span class="number">1</span></div><div class="line">performance_schema=ON  </div><div class="line">transaction_isolation = READ-COMMITTED</div><div class="line"><span class="comment">#</span></div><div class="line">innodb_file_format = Barracuda</div><div class="line">innodb_file_per_table = <span class="number">1</span></div><div class="line">innodb_strict_mode=off</div><div class="line">max_allowed_packet = <span class="number">1</span>G</div></pre></td></tr></table></figure>
-<ul>
-<li>[x]初始化每个节点的mysql</li>
-</ul>
-<pre><code class="python">/usr/local/pxc_mysql/bin/mysqld --defaults-file=/usr/local/pxc_mysql/my.cnf --datadir=/usr/local/pxc_mysql/data  --basedir=/usr/local/pxc_mysql  --initialize
-</code></pre>
-</li>
-<li><p>[x]启动第一个节点</p>
-<pre><code class="python">以root启动
-su root 
-[root@node1 pxc_mysql]<span class="comment"># /usr/local/pxc_mysql/bin/mysqld_safe --defaults-file=/usr/local/pxc_mysql/my.cnf --wsrep-new-cluster --user=mysql &amp;  </span>
-查询密码的命令
-grep <span class="string">"temporary password"</span> /usr/local/pxc_mysql/data/mysqld.log
-然后进入MySQL，执行如下操作（如果进不去，报错密码过期，那么在my.cnf文件加入：skip-grant-tables，然后无密码进入数据库： update mysql.user set password_expired=<span class="string">"N"</span> where user=<span class="string">"root"</span>; 最后把参数从配置文件去掉，重启数据库，用刚才的root密码进入即可。）
-Mysql 命令：
-alter user <span class="string">'root'</span>@<span class="string">'localhost'</span> identified by <span class="string">'xd_hs_db@2018'</span>;
-GRANT ALL PRIVILEGES ON *.* TO <span class="string">'root'</span>@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'xd_hs_db@2018'</span> WITH GRANT OPTION;
-<span class="comment">#注意 创建的pxc 用户不是凭空创建的是之前配置集群设置的</span>
-mysql&gt; create user <span class="string">'pxc'</span>@<span class="string">'localhost'</span> identified by <span class="string">'echo@2018'</span>;
-mysql&gt; grant reload, lock tables, replication client, process on *.* to <span class="string">'pxc'</span>@<span class="string">'localhost'</span>;
-</code></pre>
-<ul>
-<li>[x]初始化每个节点的mysql</li>
-</ul>
-<pre><code class="python">/usr/local/pxc_mysql/bin/mysqld --defaults-file=/usr/local/pxc_mysql/my.cnf --datadir=/usr/local/pxc_mysql/data  --basedir=/usr/local/pxc_mysql  --initialize
-</code></pre>
-<ul>
-<li>[x]依次启动第二个节点</li>
-</ul>
-<pre><code class="python">[root@node2 pxc_mysql]<span class="comment"># /usr/local/pxc_mysql/bin/mysqld_safe --defaults-file=/usr/local/pxc_mysql/my.cnf --user=mysql &amp;</span>
-</code></pre>
-<ul>
-<li>[x]依次启动第二个节点</li>
-</ul>
-<pre><code class="python">集群测试：在<span class="number">16</span>上执行
-mysql -uroot -pxd_hs_db@<span class="number">2018</span>
-mysql&gt; show variables like <span class="string">'version'</span>;
-+---------------+--------------+
-| Variable_name | Value |
-+---------------+--------------+
-| version | <span class="number">5.7</span><span class="number">.23</span><span class="number">-23</span><span class="number">-31.31</span>-log  |
-+---------------+--------------+
-<span class="number">1</span> row <span class="keyword">in</span> set (<span class="number">0.00</span> sec)
-mysql&gt; create database pxcdb;
-mysql&gt; use pxcdb;
-mysql&gt; create table t1(id tinyint,ename varchar(<span class="number">20</span>));
-mysql&gt; insert into t1 values(<span class="number">1</span>,<span class="string">'SongxiaoLang'</span>);
-登录<span class="number">17</span>检查
-select * <span class="keyword">from</span> pxcdb.t1;
---查看集群状态
-mysql&gt; show status like <span class="string">'%wsrep_clust%'</span>;
-+--------------------------+--------------------------------------+
-| Variable_name            | Value                                |
-+--------------------------+--------------------------------------+
-| wsrep_cluster_weight     | <span class="number">2</span>                                    |
-| wsrep_cluster_conf_id    | <span class="number">8</span>                                    |
-| wsrep_cluster_size       | <span class="number">2</span>                                    |
-| wsrep_cluster_state_uuid | <span class="number">77</span>cb307c-f93e<span class="number">-11e8</span><span class="number">-9433</span><span class="number">-260</span>dd7fec691 |
-| wsrep_cluster_status     | Primary                              |
-+--------------------------+--------------------------------------+
-<span class="number">5</span> rows <span class="keyword">in</span> set (<span class="number">0.00</span> sec)
-</code></pre>
-<ul>
-<li>[x]集群突发事件重启</li>
-</ul>
-<pre><code class="python"><span class="comment">#查看mysql还有哪个活着可以通过连接数据查看。</span>
-如果都挂了。
-find / -name grastate.dat 查看dat文件在哪，然后查看哪个是<span class="number">1</span>
-如果都是<span class="number">0.</span>那么将一台safe_to_bootstrap:的值修改为<span class="number">1</span>；
-然后按照，启动第一个节点的命令去启动。第二个节点则以启动第二个节点的命令去启动。
-停止pxc集群目前此版本还没有找到好的命令只能通过
-//查看mysql的进程ps -aux|grep mysql
-必要时删除进程 kill <span class="number">-9</span> pid(mysql)
-[root@pxc_mysql_17 ~]<span class="comment"># find / -name grastate.dat</span>
-/usr/local/Percona-XtraDB-Cluster<span class="number">-5.7</span><span class="number">.23</span>-rel23<span class="number">-31.31</span><span class="number">.2</span>.Linux.x86_64.ssl101/data/grastate.dat
-[root@pxc_mysql_17 ~]<span class="comment"># find /usr/local/Percona-XtraDB-Cluster-5.7.23-rel23-31.31.2.Linux.x86_64.ssl101/data/grastate.dat^C</span>
-[root@pxc_mysql_17 ~]<span class="comment"># more /usr/local/Percona-XtraDB-Cluster-5.7.23-rel23-31.31.2.Linux.x86_64.ssl101/data/grastate.dat</span>
-<span class="comment"># GALERA saved state</span>
-version: <span class="number">2.1</span>
-uuid:    <span class="number">77</span>cb307c-f93e<span class="number">-11e8</span><span class="number">-9433</span><span class="number">-260</span>dd7fec691
-seqno:   <span class="number">-1</span>
-safe_to_bootstrap: <span class="number">0</span>
-</code></pre>
-</li>
-</ul>
-
+              <p>##pxc5.7离线安装<br><strong>pxc</strong>5.7yum安装已经在之前的博客里面写过了，接下来介绍通过无外网环境，只能使用内网yum，但是yum中缺少pxc5.7的情况下，需要自己下载安装包来进行安装pxc5.7.<br> —— <a href="https://www.songxiaolang.com/2018/05/22/centos7_pxc_mysql/">5.7yum安装文档</a><br>
+          
       
       
     </div>
@@ -468,6 +349,10 @@ safe_to_bootstrap: <span class="number">0</span>
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos7/">centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a  href="/2018/12/07/linux_pxc5.7_centos7_lixian/#more">了解更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -512,7 +397,7 @@ safe_to_bootstrap: <span class="number">0</span>
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="关于Linux-升级openssl与openssh"><a href="#关于Linux-升级openssl与openssh" class="headerlink" title="##关于Linux 升级openssl与openssh"></a>##关于Linux 升级openssl与openssh</h2><p>　　项目服务器需要申请域名，但是经过漏洞扫描后发现openssh高危漏洞,具体描述如下</p>
+              <h2 id="关于Linux-升级openssl与openssh"><a href="#关于Linux-升级openssl与openssh" class="headerlink" title="##关于Linux 升级openssl与openssh"></a>##关于Linux 升级openssl与openssh</h2><p>　　项目服务器需要申请域名，但是经过漏洞扫描后发现openssh高危漏洞,具体描述如下</p>
 <blockquote>
 <ul>
 <li>OpenSSH ‘schnorr.c’远程内存破坏漏洞(CVE-2014-1692)</li>
@@ -531,22 +416,8 @@ safe_to_bootstrap: <span class="number">0</span>
 <li>OpenSSH默认服务器配置拒绝服务漏洞(CVE-2010-5107)</li>
 <li>OpenSSH &lt;=7.2p1 xauth命令注入漏洞(CVE-2016-3115)</li>
 <li>OpenSSH 远程权限提升漏洞(CVE-2016-10010)</li>
-<li>Portable OpenSSH ‘ssh-keysign’本地未授权访问漏洞</li>
-</ul>
-</blockquote>
-<hr>
-<ul>
-<li>[x] 1.上传软件包<br>openssl-1.0.2k.tar.gz     openssh-7.4p1.tar.gz</li>
-<li><p>[x] 2.安装telnet服务</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　<span class="comment">#yum -y install telnet-server*</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>[x] 3.关闭防火墙，防止telnet无法连接</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">service iptables stop &amp;&amp; chkconfig iptables off</div><div class="line">　<span class="comment">#vi /etc/xinetd.d/telnet  将其中disable字段的yes改为no以启用telnet服务</span></div><div class="line">　<span class="comment">#mv /etc/securetty /etc/securetty.old    #允许root用户通过telnet登录</span></div><div class="line">　<span class="comment">#service xinetd start                     #启动telnet服务</span></div><div class="line">　<span class="comment">#chkconfig xinetd on        #避免升级过程中服务器意外重启后无法远程登录系统</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>[x] 4.安装编译所需工具包</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">　 -------升级openssl</div><div class="line"><span class="comment">#############备份当前ssl#############</span></div><div class="line"><span class="comment">#find / -name openssl</span></div><div class="line">将上条命令找到的文件备份，命令格式如下</div><div class="line"><span class="comment">#mv  文件名  文件名.old（根据实际结果操作）</span></div><div class="line">备份如下两个库文件，因系统内部分工具（如yum、wget等）依赖此库</div><div class="line"><span class="comment">#cp  /usr/lib64/libcrypto.so.10  /usr/lib64/libcrypto.so.10.old</span></div><div class="line"><span class="comment">#cp  /usr/lib64/libssl.so.10  /usr/lib64/libssl.so.10.old</span></div><div class="line"><span class="comment">############卸载当前ssl##############</span></div><div class="line"><span class="comment">#rpm -qa | grep openssl         ###查询当前ssl版本</span></div><div class="line"><span class="comment">#rpm -e --nodeps 上条命令查询结果粘贴到此处</span></div><div class="line"><span class="comment">############解压安装新版本ssl#########</span></div><div class="line"><span class="comment">#tar -zxvf openssl-1.0.2k.tar.gz</span></div><div class="line"><span class="comment">#cd openssl-1.0.2k</span></div><div class="line"><span class="comment">#./config --prefix=/usr --openssldir=/etc/ssl --shared zlib    </span></div><div class="line"><span class="comment">#make &amp;&amp; make test &amp;&amp; make install</span></div><div class="line"><span class="comment">#openssl version -a  ##查看是否升级成功  </span></div><div class="line">--------升级openssh</div><div class="line"><span class="comment">############备份当前ssh#############</span></div><div class="line"><span class="comment">#mv /etc/ssh /etc/ssh.old</span></div><div class="line"><span class="comment">############卸载当前ssh#############</span></div><div class="line"><span class="comment">#rpm -qa | grep openssh（查询结果如下，不一定与实际环境相同）</span></div><div class="line"><span class="comment">#openssh-clients-5.3p1-111.el6.x86_64</span></div><div class="line"><span class="comment">#openssh-server-5.3p1-111.el6.x86_64</span></div><div class="line"><span class="comment">#openssh-5.3p1-111.el6.x86_64</span></div><div class="line"><span class="comment">#openssh-askpass-5.3p1-111.el6.x86_64</span></div><div class="line">卸载命令如下：</div><div class="line"><span class="comment">#rpm -e --nodeps openssh-5.3p1-111.el6.x86_64</span></div><div class="line"><span class="comment">#rpm -e --nodeps openssh-server-5.3p1-111.el6.x86_64</span></div><div class="line"><span class="comment">#rpm -e --nodeps openssh-clients-5.3p1-111.el6.x86_64</span></div><div class="line"><span class="comment">#rpm -e --nodeps openssh-askpass-5.3p1-111.el6.x86_64</span></div><div class="line"><span class="comment">#rpm -qa | grep openssh   ###查询是否成功</span></div><div class="line"><span class="comment">############安装前环境配置############</span></div><div class="line"><span class="comment">#install  -v -m700 -d /var/lib/sshd</span></div><div class="line"><span class="comment">#chown  -v root:sys /var/lib/sshd</span></div><div class="line"><span class="comment">############解压安装新版本ssh#########</span></div><div class="line"><span class="comment">#tar -zxvf openssh-7.4p1.tar.gz</span></div><div class="line"><span class="comment">#cd openssh-7.4p1</span></div><div class="line"><span class="comment">#./configure --prefix=/usr  --sysconfdir=/etc/ssh  --with-md5-passwords  --with-pam  --with-zlib --with-openssl-includes=/usr --with-privsep-path=/var/lib/sshd</span></div><div class="line"><span class="comment">#make &amp;&amp; make install</span></div><div class="line"><span class="comment">####安装后环境配置（在编译目录执行）####</span></div><div class="line"><span class="comment">#echo 'X11Forwarding yes' &gt;&gt; /etc/ssh/sshd_config</span></div><div class="line"><span class="comment">#echo "PermitRootLogin yes" &gt;&gt; /etc/ssh/sshd_config</span></div><div class="line"><span class="comment">#cp -p contrib/redhat/sshd.init /etc/init.d/sshd</span></div><div class="line"><span class="comment">#chmod +x /etc/init.d/sshd</span></div><div class="line"><span class="comment">#chkconfig  --add  sshd</span></div><div class="line"><span class="comment">#chkconfig  sshd  on</span></div><div class="line"><span class="comment">#chkconfig  --list  sshd</span></div><div class="line"><span class="comment">#service sshd restart（如果失败可用telnet连接启动服务）</span></div><div class="line"><span class="comment">###############安装成功后操作##############</span></div><div class="line"><span class="comment">#yum remove telnet-server* -y</span></div><div class="line"><span class="comment">#mv /etc/securetty.old /etc/securetty</span></div><div class="line"><span class="comment">#chkconfig  xinetd off</span></div><div class="line"><span class="comment">#service xinetd stop</span></div><div class="line"><span class="comment">#service iptables start</span></div><div class="line"><span class="comment">#chkconfig iptables on</span></div><div class="line">注意：一定要卸载telnet</div></pre></td></tr></table></figure></li>
-</ul>
-
+<li>Portable OpenSSH ‘ssh-keysign’本地未授权访问漏洞
+          
       
       
     </div>
@@ -564,6 +435,10 @@ safe_to_bootstrap: <span class="number">0</span>
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openssh/">openssh</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a  href="/2018/11/29/linux_openssl_openssh/#more">了解更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -817,8 +692,7 @@ safe_to_bootstrap: <span class="number">0</span>
       
           
               <h3 id="Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案"><a href="#Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案" class="headerlink" title="Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案"></a>Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案</h3><h4 id="1-当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。"><a href="#1-当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。" class="headerlink" title="1. 当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。"></a>1. 当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。</h4><h4 id="2-利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。"><a href="#2-利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。" class="headerlink" title="2. 利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。"></a>2. 利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。</h4><p>原因是Quartz初始化是自己的JobContext，不同于Spring的ApplicationContext，所以无法直接注入</p>
-<h4 id="3-具体做法是直接getBean-的方式来获取service的"><a href="#3-具体做法是直接getBean-的方式来获取service的" class="headerlink" title="3.具体做法是直接getBean()的方式来获取service的"></a>3.具体做法是直接getBean()的方式来获取service的</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public <span class="class"><span class="keyword">class</span> <span class="title">DispatchWork</span> <span class="title">implements</span> <span class="title">Job</span> </span>&#123;</div><div class="line">     @Override</div><div class="line">    public <span class="keyword">void</span> execute(JobExecutionContext jobExecutionContext) throws JobExecutionException &#123;</div><div class="line">        <span class="built_in">String</span> jobName = jobExecutionContext.getJobDetail().getKey().getName();</div><div class="line">        <span class="built_in">String</span> group = jobExecutionContext.getTrigger().getKey().getGroup();</div><div class="line">         RunKettleSerive  runKettleSerive= SpringContextHolder.getBean(RunKettleSerive.class);</div><div class="line">         runKettleSerive.runKettleScript(jobName,group);</div><div class="line">      <span class="comment">/*  runKettleSerive.runKettleScript(jobName,group);*/</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="4-关键代码就是RunKettleSerive-runKettleSerive-SpringContextHolder-getBean-RunKettleSerive-class-。"><a href="#4-关键代码就是RunKettleSerive-runKettleSerive-SpringContextHolder-getBean-RunKettleSerive-class-。" class="headerlink" title="4.关键代码就是RunKettleSerive  runKettleSerive= SpringContextHolder.getBean(RunKettleSerive.class)。"></a>4.关键代码就是RunKettleSerive  runKettleSerive= SpringContextHolder.getBean(RunKettleSerive.class)。</h3>
+<h4 id="3-具体做法是直接getBean-的方式来获取service的"><a href="#3-具体做法是直接getBean-的方式来获取service的" class="headerlink" title="3.具体做法是直接getBean()的方式来获取service的"></a>3.具体做法是直接getBean()的方式来获取service的</h4>
           
       
       
@@ -885,7 +759,8 @@ safe_to_bootstrap: <span class="number">0</span>
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h5 id="之前有人遇到了两个版本的tomcat8-运行tomat8w的时候，会启动第一个装在这台Windows装的tomcat的程序，后来看了运行的tomcat8-exe-的dos语言，发现他的启动的时候先看环境变量有没有，如果第一次有就运行环境变量的路径的tomcat-exe-就是第一次运行的时候会要注册一下"><a href="#之前有人遇到了两个版本的tomcat8-运行tomat8w的时候，会启动第一个装在这台Windows装的tomcat的程序，后来看了运行的tomcat8-exe-的dos语言，发现他的启动的时候先看环境变量有没有，如果第一次有就运行环境变量的路径的tomcat-exe-就是第一次运行的时候会要注册一下" class="headerlink" title="之前有人遇到了两个版本的tomcat8 运行tomat8w的时候，会启动第一个装在这台Windows装的tomcat的程序，后来看了运行的tomcat8.exe 的dos语言，发现他的启动的时候先看环境变量有没有，如果第一次有就运行环境变量的路径的tomcat.exe ,就是第一次运行的时候会要注册一下"></a>之前有人遇到了两个版本的tomcat8 运行tomat8w的时候，会启动第一个装在这台Windows装的tomcat的程序，后来看了运行的tomcat8.exe 的dos语言，发现他的启动的时候先看环境变量有没有，如果第一次有就运行环境变量的路径的tomcat.exe ,就是第一次运行的时候会要注册一下</h5><h5 id="解决办法就是：修改service-bat-将里面所有tomcat8-全部替换成，比如tomatapp，改的名字自己取就可以了，然后再讲bin-目录的tomcat8-exe-改成你之前改的，就比如我之前的tomcatapp-exe-tomcat8w-exe改成tomcatappw-exe-然后打开命令行-cd到bin目录下面。注册service服务，service-bat-install就可以了，现在就可以直接运行两个相同版本的tomcat了。"><a href="#解决办法就是：修改service-bat-将里面所有tomcat8-全部替换成，比如tomatapp，改的名字自己取就可以了，然后再讲bin-目录的tomcat8-exe-改成你之前改的，就比如我之前的tomcatapp-exe-tomcat8w-exe改成tomcatappw-exe-然后打开命令行-cd到bin目录下面。注册service服务，service-bat-install就可以了，现在就可以直接运行两个相同版本的tomcat了。" class="headerlink" title="解决办法就是：修改service.bat 将里面所有tomcat8 全部替换成，比如tomatapp，改的名字自己取就可以了，然后再讲bin 目录的tomcat8.exe 改成你之前改的，就比如我之前的tomcatapp.exe, tomcat8w.exe改成tomcatappw.exe,然后打开命令行 cd到bin目录下面。注册service服务，service.bat install就可以了，现在就可以直接运行两个相同版本的tomcat了。"></a>解决办法就是：修改service.bat 将里面所有tomcat8 全部替换成，比如tomatapp，改的名字自己取就可以了，然后再讲bin 目录的tomcat8.exe 改成你之前改的，就比如我之前的tomcatapp.exe, tomcat8w.exe改成tomcatappw.exe,然后打开命令行 cd到bin目录下面。注册service服务，service.bat install就可以了，现在就可以直接运行两个相同版本的tomcat了。</h5><h6 id="注意：每次修改的service-bat-tomcat8都要不同，相同的时候，就会遇到上述的问题"><a href="#注意：每次修改的service-bat-tomcat8都要不同，相同的时候，就会遇到上述的问题" class="headerlink" title="注意：每次修改的service.bat tomcat8都要不同，相同的时候，就会遇到上述的问题"></a>注意：每次修改的service.bat tomcat8都要不同，相同的时候，就会遇到上述的问题</h6>
+              <h5 id="之前有人遇到了两个版本的tomcat8-运行tomat8w的时候，会启动第一个装在这台Windows装的tomcat的程序，后来看了运行的tomcat8-exe-的dos语言，发现他的启动的时候先看环境变量有没有，如果第一次有就运行环境变量的路径的tomcat-exe-就是第一次运行的时候会要注册一下"><a href="#之前有人遇到了两个版本的tomcat8-运行tomat8w的时候，会启动第一个装在这台Windows装的tomcat的程序，后来看了运行的tomcat8-exe-的dos语言，发现他的启动的时候先看环境变量有没有，如果第一次有就运行环境变量的路径的tomcat-exe-就是第一次运行的时候会要注册一下" class="headerlink" title="之前有人遇到了两个版本的tomcat8 运行tomat8w的时候，会启动第一个装在这台Windows装的tomcat的程序，后来看了运行的tomcat8.exe 的dos语言，发现他的启动的时候先看环境变量有没有，如果第一次有就运行环境变量的路径的tomcat.exe ,就是第一次运行的时候会要注册一下"></a>之前有人遇到了两个版本的tomcat8 运行tomat8w的时候，会启动第一个装在这台Windows装的tomcat的程序，后来看了运行的tomcat8.exe 的dos语言，发现他的启动的时候先看环境变量有没有，如果第一次有就运行环境变量的路径的tomcat.exe ,就是第一次运行的时候会要注册一下</h5><h5 id="解决办法就是：修改service-bat-将里面所有tomcat8-全部替换成，比如tomatapp，改的名字自己取就可以了，然后再讲bin-目录的tomcat8-exe-改成你之前改的，就比如我之前的tomcatapp-exe-tomcat8w-exe改成tomcatappw-exe-然后打开命令行-cd到bin目录下面。注册service服务，service-bat-install就可以了，现在就可以直接运行两个相同版本的tomcat了。"><a href="#解决办法就是：修改service-bat-将里面所有tomcat8-全部替换成，比如tomatapp，改的名字自己取就可以了，然后再讲bin-目录的tomcat8-exe-改成你之前改的，就比如我之前的tomcatapp-exe-tomcat8w-exe改成tomcatappw-exe-然后打开命令行-cd到bin目录下面。注册service服务，service-bat-install就可以了，现在就可以直接运行两个相同版本的tomcat了。" class="headerlink" title="解决办法就是：修改service.bat 将里面所有tomcat8 全部替换成，比如tomatapp，改的名字自己取就可以了，然后再讲bin 目录的tomcat8.exe 改成你之前改的，就比如我之前的tomcatapp.exe, tomcat8w.exe改成tomcatappw.exe,然后打开命令行 cd到bin目录下面。注册service服务，service.bat install就可以了，现在就可以直接运行两个相同版本的tomcat了。"></a>解决办法就是：修改service.bat 将里面所有tomcat8 全部替换成，比如tomatapp，改的名字自己取就可以了，然后再讲bin 目录的tomcat8.exe 改成你之前改的，就比如我之前的tomcatapp.exe, tomcat8w.exe改成tomcatappw.exe,然后打开命令行 cd到bin目录下面。注册service服务，service.bat install就可以了，现在就可以直接运行两个相同版本的tomcat了。</h5><h6 id="注意：每次修改的service-bat-tomcat8都要不同，相同的时候，就会遇到上述的问题"><a href="#注意：每次修改的service-bat-tomcat8都要不同，相同的时候，就会遇到上述的问题" class="headerlink" title="注意：每次修改的service.bat tomcat8都要不同，相同的时候，就会遇到上述的问题"></a>注意：每次修改的service.bat tomcat8都要不同，相同的时候，就会遇到上述的问题</h6>
+          
       
       
     </div>
@@ -903,6 +778,10 @@ safe_to_bootstrap: <span class="number">0</span>
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tomcat/">tomcat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a  href="/2018/03/14/tomcat_service_install/#more">了解更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

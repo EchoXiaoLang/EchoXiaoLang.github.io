@@ -23,7 +23,7 @@ OpenSSH ‘schnorr.c’远程内存破坏漏洞(CVE-2014-1692)
 OpenSSH 安全漏洞(CVE-2016-1908)
 OpenSSH J-PAKE授权问题漏洞(CVE-2010-4478)
 OpenSSH 安全限制绕过漏洞(CVE">
-<meta property="og:updated_time" content="2018-11-29T09:34:45.081Z">
+<meta property="og:updated_time" content="2018-12-07T05:47:16.531Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于Linux 升级openssl与openssh">
 <meta name="twitter:description" content="##关于Linux 升级openssl与openssh　　项目服务器需要申请域名，但是经过漏洞扫描后发现openssh高危漏洞,具体描述如下
@@ -311,15 +311,17 @@ OpenSSH 安全限制绕过漏洞(CVE">
 <li>OpenSSH默认服务器配置拒绝服务漏洞(CVE-2010-5107)</li>
 <li>OpenSSH &lt;=7.2p1 xauth命令注入漏洞(CVE-2016-3115)</li>
 <li>OpenSSH 远程权限提升漏洞(CVE-2016-10010)</li>
-<li>Portable OpenSSH ‘ssh-keysign’本地未授权访问漏洞</li>
+<li>Portable OpenSSH ‘ssh-keysign’本地未授权访问漏洞<a id="more"></a>
+</li>
 </ul>
-</blockquote>
 <hr>
 <ul>
 <li>[x] 1.上传软件包<br>openssl-1.0.2k.tar.gz     openssh-7.4p1.tar.gz</li>
-<li><p>[x] 2.安装telnet服务</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　<span class="comment">#yum -y install telnet-server*</span></div></pre></td></tr></table></figure>
+<li>[x] 2.安装telnet服务<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　<span class="comment">#yum -y install telnet-server*</span></div></pre></td></tr></table></figure>
 </li>
+</ul>
+</blockquote>
+<ul>
 <li><p>[x] 3.关闭防火墙，防止telnet无法连接</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">service iptables stop &amp;&amp; chkconfig iptables off</div><div class="line">　<span class="comment">#vi /etc/xinetd.d/telnet  将其中disable字段的yes改为no以启用telnet服务</span></div><div class="line">　<span class="comment">#mv /etc/securetty /etc/securetty.old    #允许root用户通过telnet登录</span></div><div class="line">　<span class="comment">#service xinetd start                     #启动telnet服务</span></div><div class="line">　<span class="comment">#chkconfig xinetd on        #避免升级过程中服务器意外重启后无法远程登录系统</span></div></pre></td></tr></table></figure>
 </li>
@@ -385,7 +387,7 @@ OpenSSH 安全限制绕过漏洞(CVE">
         <p><span>本文标题:</span><a href="/2018/11/29/linux_openssl_openssh/">关于Linux 升级openssl与openssh</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Echo_Sxl 的个人博客">Echo_Sxl</a></p>
         <p><span>发布时间:</span>2018年11月29日 - 17时34分</p>
-        <p><span>最后更新:</span>2018年11月29日 - 17时34分</p>
+        <p><span>最后更新:</span>2018年12月07日 - 13时47分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/11/29/linux_openssl_openssh/" title="关于Linux 升级openssl与openssh">http://www.songxiaolang.com/2018/11/29/linux_openssl_openssh/</a>
             <span class="copy-path" data-clipboard-text="原文: http://www.songxiaolang.com/2018/11/29/linux_openssl_openssh/　　作者: Echo_Sxl" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

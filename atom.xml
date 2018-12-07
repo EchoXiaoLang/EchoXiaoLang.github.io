@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.songxiaolang.com/"/>
-  <updated>2018-12-07T05:41:46.065Z</updated>
+  <updated>2018-12-07T05:47:31.877Z</updated>
   <id>http://www.songxiaolang.com/</id>
   
   <author>
@@ -20,11 +20,11 @@
     <link href="http://www.songxiaolang.com/2018/12/07/root_login/"/>
     <id>http://www.songxiaolang.com/2018/12/07/root_login/</id>
     <published>2018-12-07T05:41:29.000Z</published>
-    <updated>2018-12-07T05:41:46.065Z</updated>
+    <updated>2018-12-07T05:47:31.877Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Linux下允许或禁止root用户远程登录的方法&quot;&gt;&lt;a href=&quot;#Linux下允许或禁止root用户远程登录的方法&quot; class=&quot;headerlink&quot; title=&quot;Linux下允许或禁止root用户远程登录的方法&quot;&gt;&lt;/a&gt;Linux下允许或禁止roo
+      &lt;h1 id=&quot;Linux下允许或禁止root用户远程登录的方法&quot;&gt;&lt;a href=&quot;#Linux下允许或禁止root用户远程登录的方法&quot; class=&quot;headerlink&quot; title=&quot;Linux下允许或禁止root用户远程登录的方法&quot;&gt;&lt;/a&gt;Linux下允许或禁止root用户远程登录的方法&lt;/h1&gt;&lt;h4 id=&quot;命令&quot;&gt;&lt;a href=&quot;#命令&quot; class=&quot;headerlink&quot; title=&quot;命令&quot;&gt;&lt;/a&gt;命令&lt;/h4&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;）vim /etc/ssh/sshd_config，&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;将PermitRootLogin的值改成yes，并保存&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;PermitRootLogin yes&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;）service sshd restart&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;这样，就能用root直接ssh登录了&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;如果在&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;）中，将PermitRootLogin的值设成no，就不能用root直接ssh登录了&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -42,12 +42,11 @@
     <link href="http://www.songxiaolang.com/2018/12/07/linux_pxc5.7_centos7_lixian/"/>
     <id>http://www.songxiaolang.com/2018/12/07/linux_pxc5.7_centos7_lixian/</id>
     <published>2018-12-07T05:20:49.000Z</published>
-    <updated>2018-12-07T05:20:51.140Z</updated>
+    <updated>2018-12-07T05:47:26.616Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;##pxc5.7离线安装&lt;br&gt;&lt;strong&gt;pxc&lt;/strong&gt;5.7yum安装已经在之前的博客里面写过了，接下来介绍通过无外网环境，只能使用内网yum，但是yum中缺少pxc5.7的情况下，需要自己下载安装包来进行安装pxc5.7.&lt;/p&gt;
-&lt;h2 id=&quot;——-
+      &lt;p&gt;##pxc5.7离线安装&lt;br&gt;&lt;strong&gt;pxc&lt;/strong&gt;5.7yum安装已经在之前的博客里面写过了，接下来介绍通过无外网环境，只能使用内网yum，但是yum中缺少pxc5.7的情况下，需要自己下载安装包来进行安装pxc5.7.&lt;br&gt; —— &lt;a href=&quot;https://www.songxiaolang.com/2018/05/22/centos7_pxc_mysql/&quot;&gt;5.7yum安装文档&lt;/a&gt;&lt;br&gt;
     
     </summary>
     
@@ -65,11 +64,30 @@
     <link href="http://www.songxiaolang.com/2018/11/29/linux_openssl_openssh/"/>
     <id>http://www.songxiaolang.com/2018/11/29/linux_openssl_openssh/</id>
     <published>2018-11-29T09:34:42.000Z</published>
-    <updated>2018-11-29T09:34:45.081Z</updated>
+    <updated>2018-12-07T05:47:16.531Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;关于Linux-升级openssl与openssh&quot;&gt;&lt;a href=&quot;#关于Linux-升级openssl与openssh&quot; class=&quot;headerlink&quot; title=&quot;##关于Linux 升级openssl与openssh&quot;&gt;&lt;/a&gt;##关于Linux
+      &lt;h2 id=&quot;关于Linux-升级openssl与openssh&quot;&gt;&lt;a href=&quot;#关于Linux-升级openssl与openssh&quot; class=&quot;headerlink&quot; title=&quot;##关于Linux 升级openssl与openssh&quot;&gt;&lt;/a&gt;##关于Linux 升级openssl与openssh&lt;/h2&gt;&lt;p&gt;　　项目服务器需要申请域名，但是经过漏洞扫描后发现openssh高危漏洞,具体描述如下&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;OpenSSH ‘schnorr.c’远程内存破坏漏洞(CVE-2014-1692)&lt;/li&gt;
+&lt;li&gt;OpenSSH 安全漏洞(CVE-2016-1908)&lt;/li&gt;
+&lt;li&gt;OpenSSH J-PAKE授权问题漏洞(CVE-2010-4478)&lt;/li&gt;
+&lt;li&gt;OpenSSH 安全限制绕过漏洞(CVE-2016-10012)&lt;/li&gt;
+&lt;li&gt;OpenSSH do_setup_env函数权限提升漏洞(CVE-2015-8325)&lt;/li&gt;
+&lt;li&gt;OpenSSH auth_password函数拒绝服务漏洞(CVE-2016-6515)&lt;/li&gt;
+&lt;li&gt;Openssh MaxAuthTries限制绕过漏洞(CVE-2015-5600)&lt;/li&gt;
+&lt;li&gt;OpenSSH 远程代码执行漏洞(CVE-2016-10009)&lt;/li&gt;
+&lt;li&gt;OpenSSH sshd mm_answer_pam_free_ctx释放后重利用漏洞(CVE-2015-6564)&lt;/li&gt;
+&lt;li&gt;SSH 服务支持弱加密算法&lt;/li&gt;
+&lt;li&gt;OpenSSH glob表达式拒绝服务漏洞(CVE-2010-4755)&lt;/li&gt;
+&lt;li&gt;OpenSSH ‘x11_open_helper()’函数安全限制绕过漏洞(CVE-2015-5352)&lt;/li&gt;
+&lt;li&gt;OpenSSH 用户枚举漏洞(CVE-2018-15473)【原理扫描】&lt;/li&gt;
+&lt;li&gt;OpenSSH默认服务器配置拒绝服务漏洞(CVE-2010-5107)&lt;/li&gt;
+&lt;li&gt;OpenSSH &amp;lt;=7.2p1 xauth命令注入漏洞(CVE-2016-3115)&lt;/li&gt;
+&lt;li&gt;OpenSSH 远程权限提升漏洞(CVE-2016-10010)&lt;/li&gt;
+&lt;li&gt;Portable OpenSSH ‘ssh-keysign’本地未授权访问漏洞
     
     </summary>
     
@@ -162,13 +180,12 @@
     <link href="http://www.songxiaolang.com/2018/05/22/Spring_Quartz_Job_Autowired/"/>
     <id>http://www.songxiaolang.com/2018/05/22/Spring_Quartz_Job_Autowired/</id>
     <published>2018-05-22T03:29:03.000Z</published>
-    <updated>2018-05-22T03:29:07.235Z</updated>
+    <updated>2018-12-07T05:48:18.727Z</updated>
     
     <summary type="html">
     
       &lt;h3 id=&quot;Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案&quot;&gt;&lt;a href=&quot;#Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案&quot; class=&quot;headerlink&quot; title=&quot;Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案&quot;&gt;&lt;/a&gt;Spring使用Quartz定时调度Job无法Autowired注入Service的解决方案&lt;/h3&gt;&lt;h4 id=&quot;1-当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。&quot;&gt;&lt;a href=&quot;#1-当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。&quot; class=&quot;headerlink&quot; title=&quot;1. 当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。&quot;&gt;&lt;/a&gt;1. 当时我有个项目要使用调度，所以选择Spring-Quartz，但是遇到了问题就是无法Autowired注入Service。&lt;/h4&gt;&lt;h4 id=&quot;2-利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。&quot;&gt;&lt;a href=&quot;#2-利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。&quot; class=&quot;headerlink&quot; title=&quot;2. 利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。&quot;&gt;&lt;/a&gt;2. 利用Quartz可以实现定时任务，但在跟Spring整合后，直接在Job中注解方式注入Service后运行却报空指针异常。&lt;/h4&gt;&lt;p&gt;原因是Quartz初始化是自己的JobContext，不同于Spring的ApplicationContext，所以无法直接注入&lt;/p&gt;
-&lt;h4 id=&quot;3-具体做法是直接getBean-的方式来获取service的&quot;&gt;&lt;a href=&quot;#3-具体做法是直接getBean-的方式来获取service的&quot; class=&quot;headerlink&quot; title=&quot;3.具体做法是直接getBean()的方式来获取service的&quot;&gt;&lt;/a&gt;3.具体做法是直接getBean()的方式来获取service的&lt;/h4&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;public &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;DispatchWork&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Job&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     @Override&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    public &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; execute(JobExecutionContext jobExecutionContext) throws JobExecutionException &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;String&lt;/span&gt; jobName = jobExecutionContext.getJobDetail().getKey().getName();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;String&lt;/span&gt; group = jobExecutionContext.getTrigger().getKey().getGroup();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;         RunKettleSerive  runKettleSerive= SpringContextHolder.getBean(RunKettleSerive.class);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;         runKettleSerive.runKettleScript(jobName,group);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;comment&quot;&gt;/*  runKettleSerive.runKettleScript(jobName,group);*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;4-关键代码就是RunKettleSerive-runKettleSerive-SpringContextHolder-getBean-RunKettleSerive-class-。&quot;&gt;&lt;a href=&quot;#4-关键代码就是RunKettleSerive-runKettleSerive-SpringContextHolder-getBean-RunKettleSerive-class-。&quot; class=&quot;headerlink&quot; title=&quot;4.关键代码就是RunKettleSerive  runKettleSerive= SpringContextHolder.getBean(RunKettleSerive.class)。&quot;&gt;&lt;/a&gt;4.关键代码就是RunKettleSerive  runKettleSerive= SpringContextHolder.getBean(RunKettleSerive.class)。&lt;/h3&gt;
+&lt;h4 id=&quot;3-具体做法是直接getBean-的方式来获取service的&quot;&gt;&lt;a href=&quot;#3-具体做法是直接getBean-的方式来获取service的&quot; class=&quot;headerlink&quot; title=&quot;3.具体做法是直接getBean()的方式来获取service的&quot;&gt;&lt;/a&gt;3.具体做法是直接getBean()的方式来获取service的&lt;/h4&gt;
     
     </summary>
     
@@ -186,11 +203,11 @@
     <link href="http://www.songxiaolang.com/2018/03/14/tomcat_service_install/"/>
     <id>http://www.songxiaolang.com/2018/03/14/tomcat_service_install/</id>
     <published>2018-03-14T11:34:58.000Z</published>
-    <updated>2018-03-14T11:52:14.565Z</updated>
+    <updated>2018-12-07T05:48:00.038Z</updated>
     
     <summary type="html">
     
-      &lt;h5 id=&quot;之前有人遇到了两个版本的tomcat8-运行tomat8w的时候，会启动第一个装在这台Windows装的tomcat的程序，后来看了运行的tomcat8-exe-的dos语言，发现他的启动的时候先看环境变量有没有，如果第一次有就运行环境变量的路径的tomcat-e
+      &lt;h5 id=&quot;之前有人遇到了两个版本的tomcat8-运行tomat8w的时候，会启动第一个装在这台Windows装的tomcat的程序，后来看了运行的tomcat8-exe-的dos语言，发现他的启动的时候先看环境变量有没有，如果第一次有就运行环境变量的路径的tomcat-exe-就是第一次运行的时候会要注册一下&quot;&gt;&lt;a href=&quot;#之前有人遇到了两个版本的tomcat8-运行tomat8w的时候，会启动第一个装在这台Windows装的tomcat的程序，后来看了运行的tomcat8-exe-的dos语言，发现他的启动的时候先看环境变量有没有，如果第一次有就运行环境变量的路径的tomcat-exe-就是第一次运行的时候会要注册一下&quot; class=&quot;headerlink&quot; title=&quot;之前有人遇到了两个版本的tomcat8 运行tomat8w的时候，会启动第一个装在这台Windows装的tomcat的程序，后来看了运行的tomcat8.exe 的dos语言，发现他的启动的时候先看环境变量有没有，如果第一次有就运行环境变量的路径的tomcat.exe ,就是第一次运行的时候会要注册一下&quot;&gt;&lt;/a&gt;之前有人遇到了两个版本的tomcat8 运行tomat8w的时候，会启动第一个装在这台Windows装的tomcat的程序，后来看了运行的tomcat8.exe 的dos语言，发现他的启动的时候先看环境变量有没有，如果第一次有就运行环境变量的路径的tomcat.exe ,就是第一次运行的时候会要注册一下&lt;/h5&gt;&lt;h5 id=&quot;解决办法就是：修改service-bat-将里面所有tomcat8-全部替换成，比如tomatapp，改的名字自己取就可以了，然后再讲bin-目录的tomcat8-exe-改成你之前改的，就比如我之前的tomcatapp-exe-tomcat8w-exe改成tomcatappw-exe-然后打开命令行-cd到bin目录下面。注册service服务，service-bat-install就可以了，现在就可以直接运行两个相同版本的tomcat了。&quot;&gt;&lt;a href=&quot;#解决办法就是：修改service-bat-将里面所有tomcat8-全部替换成，比如tomatapp，改的名字自己取就可以了，然后再讲bin-目录的tomcat8-exe-改成你之前改的，就比如我之前的tomcatapp-exe-tomcat8w-exe改成tomcatappw-exe-然后打开命令行-cd到bin目录下面。注册service服务，service-bat-install就可以了，现在就可以直接运行两个相同版本的tomcat了。&quot; class=&quot;headerlink&quot; title=&quot;解决办法就是：修改service.bat 将里面所有tomcat8 全部替换成，比如tomatapp，改的名字自己取就可以了，然后再讲bin 目录的tomcat8.exe 改成你之前改的，就比如我之前的tomcatapp.exe, tomcat8w.exe改成tomcatappw.exe,然后打开命令行 cd到bin目录下面。注册service服务，service.bat install就可以了，现在就可以直接运行两个相同版本的tomcat了。&quot;&gt;&lt;/a&gt;解决办法就是：修改service.bat 将里面所有tomcat8 全部替换成，比如tomatapp，改的名字自己取就可以了，然后再讲bin 目录的tomcat8.exe 改成你之前改的，就比如我之前的tomcatapp.exe, tomcat8w.exe改成tomcatappw.exe,然后打开命令行 cd到bin目录下面。注册service服务，service.bat install就可以了，现在就可以直接运行两个相同版本的tomcat了。&lt;/h5&gt;&lt;h6 id=&quot;注意：每次修改的service-bat-tomcat8都要不同，相同的时候，就会遇到上述的问题&quot;&gt;&lt;a href=&quot;#注意：每次修改的service-bat-tomcat8都要不同，相同的时候，就会遇到上述的问题&quot; class=&quot;headerlink&quot; title=&quot;注意：每次修改的service.bat tomcat8都要不同，相同的时候，就会遇到上述的问题&quot;&gt;&lt;/a&gt;注意：每次修改的service.bat tomcat8都要不同，相同的时候，就会遇到上述的问题&lt;/h6&gt;
     
     </summary>
     
