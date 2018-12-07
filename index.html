@@ -152,7 +152,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Keepalive/" style="font-size: 10px;">Keepalive</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/QQ/" style="font-size: 10px;">QQ</a> <a href="/tags/Quartz/" style="font-size: 10px;">Quartz</a> <a href="/tags/centos7/" style="font-size: 10px;">centos7</a> <a href="/tags/java-execCommand/" style="font-size: 10px;">java_execCommand</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/openssh/" style="font-size: 10px;">openssh</a> <a href="/tags/pxc/" style="font-size: 10px;">pxc</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/文章/" style="font-size: 20px;">文章</a>
+                        <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Keepalive/" style="font-size: 10px;">Keepalive</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/QQ/" style="font-size: 10px;">QQ</a> <a href="/tags/Quartz/" style="font-size: 10px;">Quartz</a> <a href="/tags/centos7/" style="font-size: 15px;">centos7</a> <a href="/tags/java-execCommand/" style="font-size: 10px;">java_execCommand</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/openssh/" style="font-size: 10px;">openssh</a> <a href="/tags/pxc/" style="font-size: 10px;">pxc</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/文章/" style="font-size: 20px;">文章</a>
                     </div>
                 </section>
                 
@@ -235,6 +235,192 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-linux_pxc5.7_centos7_lixian" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/07/linux_pxc5.7_centos7_lixian/" class="article-date">
+      <time datetime="2018-12-07T05:20:49.000Z" itemprop="datePublished">2018-12-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/07/linux_pxc5.7_centos7_lixian/">pxc5.7离线安装</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>##pxc5.7离线安装<br><strong>pxc</strong>5.7yum安装已经在之前的博客里面写过了，接下来介绍通过无外网环境，只能使用内网yum，但是yum中缺少pxc5.7的情况下，需要自己下载安装包来进行安装pxc5.7.</p>
+<h2 id="——-5-7yum安装文档"><a href="#——-5-7yum安装文档" class="headerlink" title=" —— 5.7yum安装文档"></a> —— <a href="https://www.songxiaolang.com/2018/05/22/centos7_pxc_mysql/">5.7yum安装文档</a></h2><p>###服务器准备<br>| 服务器  |<br>| - |<br>| <strong>.168.124.16 |<br>| </strong>.168.124.17  |</p>
+<ul>
+<li><p>[x] 主机名修改</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">两台机器默认都是localhsot，分别修改两台主机名。名字自定义不要重复</div><div class="line">命令格式 ：sudo hostnamectl set-hostname &lt;newhostname&gt;</div><div class="line"><span class="number">16</span> 执行  sudo hostnamectl set-hostname pxc_mysql_16</div><div class="line"><span class="number">17</span> 执行  sudo hostnamectl set-hostname pxc_mysql_17·</div><div class="line">检查方式  hostname   或者  reboot 重启查看</div></pre></td></tr></table></figure>
+</li>
+<li><p>[x] 开启防火墙</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">systemctl start firewalld</div><div class="line">firewall-cmd --add-port=<span class="number">3306</span>/tcp --permanent</div><div class="line">firewall-cmd --add-port=<span class="number">4567</span>/tcp --permanent</div><div class="line">firewall-cmd --add-port=<span class="number">4568</span>/tcp --permanent</div><div class="line">firewall-cmd --add-port=<span class="number">4444</span>/tcp --permanent</div><div class="line">firewall-cmd --reload</div></pre></td></tr></table></figure>
+</li>
+<li><p>[x] 添加host 两台都要</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vim /etc/hosts</div><div class="line">**<span class="number">.172</span><span class="number">.19</span><span class="number">.16</span> pxc_mysql_16</div><div class="line">**<span class="number">.172</span><span class="number">.19</span><span class="number">.17</span> pxc_mysql_17</div><div class="line"><span class="comment">#私有源地址</span></div><div class="line">**<span class="number">.117</span><span class="number">.120</span><span class="number">.246</span> linux.siyou.**.**</div></pre></td></tr></table></figure>
+</li>
+<li><p>[x] 配置内网yum</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vim /etc/hosts</div><div class="line">**<span class="number">.172</span><span class="number">.19</span><span class="number">.16</span> pxc_mysql_16</div><div class="line">**<span class="number">.172</span><span class="number">.19</span><span class="number">.17</span> pxc_mysql_17</div></pre></td></tr></table></figure>
+</li>
+<li><p>[x] 更改私有源地址 可选</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">参考地址：https://gitlab.com/XDOSC/WIFI/wikis/mirror-help/centos</div></pre></td></tr></table></figure>
+<ul>
+<li>[x]  安装依赖</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum install -y git scons gcc* gcc-c++ openssl* check cmake bison \</div><div class="line">boost-devel asio-devel libaio-devel ncurses-devel readline-devel pam-devel \</div><div class="line">socat perl-time-hires perl-io-socket-ssl.noarch perl-dbd-mysql.x86_64</div></pre></td></tr></table></figure>
+<ul>
+<li>[x] 文件准备</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">文件<span class="number">1</span>：libev<span class="number">-4.15</span><span class="number">-1.</span>el6.rf.x86_64.rpm</div><div class="line">文件<span class="number">2</span>：percona-xtrabackup<span class="number">-24</span><span class="number">-2.4</span><span class="number">.11</span><span class="number">-1.</span>el7.x86_64.rpm</div><div class="line">文件<span class="number">3</span>：Percona-XtraDB-Cluster<span class="number">-5.7</span><span class="number">.23</span>-rel23<span class="number">-31.31</span><span class="number">.2</span>.Linux.x86_64.ssl101.tar.gz</div></pre></td></tr></table></figure>
+<ul>
+<li>[x] 文件安装</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">放到/opt/mysql 目录</div><div class="line">rpm -ivh libev<span class="number">-4.15</span><span class="number">-1.</span>el6.rf.x86_64.rpm </div><div class="line">rpm -ivh percona-xtrabackup<span class="number">-24</span><span class="number">-2.4</span><span class="number">.11</span><span class="number">-1.</span>el7.x86_64.rpm</div><div class="line">mv Percona-XtraDB-Cluster<span class="number">-5.7</span><span class="number">.23</span>-rel23<span class="number">-31.31</span><span class="number">.2</span>.Linux.x86_64.ssl101.tar.gz  usr/local</div><div class="line">cd /usr/local/</div><div class="line">tar zxvf Percona-XtraDB-Cluster<span class="number">-5.7</span><span class="number">.23</span>-rel23<span class="number">-31.31</span><span class="number">.2</span>.Linux.x86_64.ssl101.tar.gz </div><div class="line">ln -s Percona-XtraDB-Cluster<span class="number">-5.7</span><span class="number">.23</span>-rel23<span class="number">-31.31</span><span class="number">.2</span>.Linux.x86_64.ssl101 pxc_mysql</div><div class="line">创建用户，新建文件夹请授权【<span class="number">2</span>个节点都要操作】 ：</div><div class="line">[root@localhost ~]<span class="comment"># userdel mysql</span></div><div class="line">[root@localhost ~]<span class="comment"># groupadd mysql</span></div><div class="line">[root@localhost ~]<span class="comment"># useradd -g mysql mysql</span></div><div class="line">[root@localhost ~]<span class="comment"># passwd mysql</span></div><div class="line"><span class="comment">##密码记住之后切换用户的时候需要用到</span></div><div class="line">[root@localhost ~]<span class="comment"># mkdir -p /usr/local/pxc_mysql/&#123;data,logs,tmp&#125;</span></div><div class="line">[root@localhost ~]<span class="comment"># mkdir -p /usr/local/pxc_mysql/logs/binlog</span></div><div class="line">[root@localhost ~]<span class="comment"># chown -R mysql:mysql /usr/local/pxc_mysql/</span></div><div class="line">[root@localhost ~]<span class="comment"># chmod -R +x /usr/local/pxc_mysql/</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>[x] 配置服务器之间ssh登录无密码验证</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">ssh-keygen实现两台主机之间相互免密钥登录，保证两台机之间能ping通</div><div class="line"><span class="number">1</span>)在所有的主机上执行：</div><div class="line"><span class="comment"># ssh-keygen -t rsa</span></div><div class="line"><span class="number">2</span>)将所有机子上公钥（id_rsa.pub）导到一个主机的/root/.ssh/authorized_keys文件中,然后将authorized_keys分别拷贝到所有主机上，以<span class="number">17</span> 服务器命令为例子，<span class="number">16</span>服务器上只要改用<span class="number">17</span>的ip就可以了。</div><div class="line">cat /root/.ssh/id_rsa.pub &gt;&gt; /root/.ssh/authorized_keys</div><div class="line">ssh <span class="number">10.172</span><span class="number">.19</span><span class="number">.16</span> cat /root/.ssh/id_rsa.pub &gt;&gt; /root/.ssh/authorized_keys</div><div class="line">scp /root/.ssh/authorized_keys <span class="number">10.172</span><span class="number">.19</span><span class="number">.16</span>:/root/.ssh/authorized_keys</div><div class="line">scp /root/.ssh/authorized_keys <span class="number">10.172</span><span class="number">.19</span><span class="number">.16</span>:/root/.ssh/authorized_keys</div><div class="line">两台服务器都要</div><div class="line">以<span class="number">16</span> 服务器命令为例子，<span class="number">17</span>服务器上只要改用<span class="number">16</span>的ip就可以了。</div><div class="line">cat /root/.ssh/id_rsa.pub &gt;&gt; /root/.ssh/authorized_keys</div><div class="line">ssh <span class="number">10.172</span><span class="number">.19</span><span class="number">.17</span> cat /root/.ssh/id_rsa.pub &gt;&gt; /root/.ssh/authorized_keys</div><div class="line">scp /root/.ssh/authorized_keys <span class="number">10.172</span><span class="number">.19</span><span class="number">.17</span>:/root/.ssh/authorized_keys</div><div class="line">scp /root/.ssh/authorized_keys <span class="number">10.172</span><span class="number">.19</span><span class="number">.17</span>:/root/.ssh/authorized_keys</div><div class="line">在<span class="number">16</span>上测试：ssh <span class="number">10.172</span><span class="number">.19</span><span class="number">.17</span></div></pre></td></tr></table></figure>
+<ul>
+<li>[x] 重启服务器</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">reboot</div></pre></td></tr></table></figure>
+<ul>
+<li>[x] 配置my.cnf</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line">两台服务都要执行引链</div><div class="line">ln -s /usr/local/pxc_mysql/bin/mysql  /usr/bin</div><div class="line">ln -s /usr/local/Percona-XtraDB-Cluster<span class="number">-5.7</span><span class="number">.23</span>-rel23<span class="number">-31.31</span><span class="number">.2</span>.Linux.x86_64.ssl101/data/mysql.sock  /tmp/mysql.sock</div><div class="line"><span class="number">3</span>、切换mysql用户创建my.cnf ，两台都需要此操作修改点看注释</div><div class="line">su mysql</div><div class="line">输入密码为之前创建的时候设置的</div><div class="line">cd /usr/local/pxc_mysql/</div><div class="line">vi  my.cnf</div><div class="line"><span class="comment"># Template my.cnf for PXC</span></div><div class="line"><span class="comment"># Edit to your requirements.</span></div><div class="line">[client]</div><div class="line">socket=/usr/local/pxc_mysql/data</div><div class="line">[mysqld]</div><div class="line"><span class="comment">#需要修改点节点一般设置为服务的ip最后两三位，两台不一致</span></div><div class="line">server-id=<span class="number">17</span> </div><div class="line">port = <span class="number">3306</span>  <span class="comment">#默认</span></div><div class="line">basedir=/usr/local/pxc_mysql</div><div class="line">datadir=/usr/local/pxc_mysql/data</div><div class="line">socket=/usr/local/pxc_mysql/data/mysql.sock</div><div class="line">log-error=/usr/local/pxc_mysql/data/mysqld.log</div><div class="line">pid-file=/usr/local/pxc_mysql/data/mysqld.pid</div><div class="line">log-bin=/usr/local/pxc_mysql/logs</div><div class="line">slow_query_log_file = /usr/local/pxc_mysql/data/slow.log</div><div class="line">log_slave_updates</div><div class="line">expire_logs_days=<span class="number">7</span></div><div class="line">binlog_format=ROW</div><div class="line">innodb_buffer_pool_size = <span class="number">1524</span>M</div><div class="line">lower_case_table_names=<span class="number">1</span></div><div class="line"><span class="comment">#pxc</span></div><div class="line">wsrep_provider=/usr/local/pxc_mysql/lib/libgalera_smm.so  </div><div class="line">wsrep_cluster_name=pxc-nie<span class="comment">#集群名字：两台服务器一样即可</span></div><div class="line"><span class="comment">#集群之间的IP，建议将本机ip放在最后。</span></div><div class="line">wsrep_cluster_address=gcomm://<span class="number">10.172</span><span class="number">.19</span><span class="number">.16</span>,<span class="number">10.172</span><span class="number">.19</span><span class="number">.17</span></div><div class="line">wsrep_node_name=pxc_mysql_17 <span class="comment">#本主机名开始修改的 两台不一样</span></div><div class="line">wsrep_node_address=<span class="number">10.172</span><span class="number">.19</span><span class="number">.17</span>  <span class="comment">#本机IP两台不一样</span></div><div class="line">wsrep_sst_method=xtrabackup-v2 <span class="comment">#参数可百度。最优参数这个</span></div><div class="line">wsrep_sst_auth=pxc:echo@<span class="number">2018</span> <span class="comment">#数据同步用户</span></div><div class="line">pxc_strict_mode=PERMISSIVE<span class="comment">#参数可百度</span></div><div class="line">binlog_format=ROW </div><div class="line">default_storage_engine=InnoDB</div><div class="line">innodb_buffer_pool_size = <span class="number">60</span>G </div><div class="line">sql_mode=STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER</div><div class="line"><span class="comment">#ROW_FORMAT = DYNAMIC</span></div><div class="line">binlog_format = row</div><div class="line">max_binlog_size = <span class="number">512</span>M</div><div class="line">expire-logs-days = <span class="number">7</span></div><div class="line">slave-net-timeout=<span class="number">30</span></div><div class="line">skip-external-locking</div><div class="line">skip_name_resolve = <span class="number">1</span></div><div class="line">default-storage-engine = InnoDB</div><div class="line"> wait_timeout=<span class="number">3600</span></div><div class="line"> interactive_timeout=<span class="number">3600</span></div><div class="line"> connect_timeout = <span class="number">20</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#######per_thread_buffers#####################</span></div><div class="line">max_connections=<span class="number">3000</span></div><div class="line">max_user_connections=<span class="number">3000</span></div><div class="line">max_connect_errors=<span class="number">3000</span></div><div class="line"><span class="comment">#</span></div><div class="line">max_allowed_packet = <span class="number">64</span>M</div><div class="line">table_open_cache = <span class="number">6144</span></div><div class="line">table_definition_cache = <span class="number">4096</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">################InnoDB###########################</span></div><div class="line">innodb_buffer_pool_instances    = <span class="number">8</span></div><div class="line">innodb_flush_method = O_DIRECT</div><div class="line">innodb_io_capacity = <span class="number">300</span>  </div><div class="line">innodb_max_dirty_pages_pct = <span class="number">80</span></div><div class="line">innodb_log_file_size = <span class="number">1024</span>M </div><div class="line">innodb_log_buffer_size = <span class="number">512</span>M</div><div class="line">innodb_log_files_in_group = <span class="number">3</span></div><div class="line">innodb_flush_log_at_trx_commit = <span class="number">1</span></div><div class="line">performance_schema=ON  </div><div class="line">transaction_isolation = READ-COMMITTED</div><div class="line"><span class="comment">#</span></div><div class="line">innodb_file_format = Barracuda</div><div class="line">innodb_file_per_table = <span class="number">1</span></div><div class="line">innodb_strict_mode=off</div><div class="line">max_allowed_packet = <span class="number">1</span>G</div></pre></td></tr></table></figure>
+<ul>
+<li>[x]初始化每个节点的mysql</li>
+</ul>
+<pre><code class="python">/usr/local/pxc_mysql/bin/mysqld --defaults-file=/usr/local/pxc_mysql/my.cnf --datadir=/usr/local/pxc_mysql/data  --basedir=/usr/local/pxc_mysql  --initialize
+</code></pre>
+</li>
+<li><p>[x]启动第一个节点</p>
+<pre><code class="python">以root启动
+su root 
+[root@node1 pxc_mysql]<span class="comment"># /usr/local/pxc_mysql/bin/mysqld_safe --defaults-file=/usr/local/pxc_mysql/my.cnf --wsrep-new-cluster --user=mysql &amp;  </span>
+查询密码的命令
+grep <span class="string">"temporary password"</span> /usr/local/pxc_mysql/data/mysqld.log
+然后进入MySQL，执行如下操作（如果进不去，报错密码过期，那么在my.cnf文件加入：skip-grant-tables，然后无密码进入数据库： update mysql.user set password_expired=<span class="string">"N"</span> where user=<span class="string">"root"</span>; 最后把参数从配置文件去掉，重启数据库，用刚才的root密码进入即可。）
+Mysql 命令：
+alter user <span class="string">'root'</span>@<span class="string">'localhost'</span> identified by <span class="string">'xd_hs_db@2018'</span>;
+GRANT ALL PRIVILEGES ON *.* TO <span class="string">'root'</span>@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'xd_hs_db@2018'</span> WITH GRANT OPTION;
+<span class="comment">#注意 创建的pxc 用户不是凭空创建的是之前配置集群设置的</span>
+mysql&gt; create user <span class="string">'pxc'</span>@<span class="string">'localhost'</span> identified by <span class="string">'echo@2018'</span>;
+mysql&gt; grant reload, lock tables, replication client, process on *.* to <span class="string">'pxc'</span>@<span class="string">'localhost'</span>;
+</code></pre>
+<ul>
+<li>[x]初始化每个节点的mysql</li>
+</ul>
+<pre><code class="python">/usr/local/pxc_mysql/bin/mysqld --defaults-file=/usr/local/pxc_mysql/my.cnf --datadir=/usr/local/pxc_mysql/data  --basedir=/usr/local/pxc_mysql  --initialize
+</code></pre>
+<ul>
+<li>[x]依次启动第二个节点</li>
+</ul>
+<pre><code class="python">[root@node2 pxc_mysql]<span class="comment"># /usr/local/pxc_mysql/bin/mysqld_safe --defaults-file=/usr/local/pxc_mysql/my.cnf --user=mysql &amp;</span>
+</code></pre>
+<ul>
+<li>[x]依次启动第二个节点</li>
+</ul>
+<pre><code class="python">集群测试：在<span class="number">16</span>上执行
+mysql -uroot -pxd_hs_db@<span class="number">2018</span>
+mysql&gt; show variables like <span class="string">'version'</span>;
++---------------+--------------+
+| Variable_name | Value |
++---------------+--------------+
+| version | <span class="number">5.7</span><span class="number">.23</span><span class="number">-23</span><span class="number">-31.31</span>-log  |
++---------------+--------------+
+<span class="number">1</span> row <span class="keyword">in</span> set (<span class="number">0.00</span> sec)
+mysql&gt; create database pxcdb;
+mysql&gt; use pxcdb;
+mysql&gt; create table t1(id tinyint,ename varchar(<span class="number">20</span>));
+mysql&gt; insert into t1 values(<span class="number">1</span>,<span class="string">'SongxiaoLang'</span>);
+登录<span class="number">17</span>检查
+select * <span class="keyword">from</span> pxcdb.t1;
+--查看集群状态
+mysql&gt; show status like <span class="string">'%wsrep_clust%'</span>;
++--------------------------+--------------------------------------+
+| Variable_name            | Value                                |
++--------------------------+--------------------------------------+
+| wsrep_cluster_weight     | <span class="number">2</span>                                    |
+| wsrep_cluster_conf_id    | <span class="number">8</span>                                    |
+| wsrep_cluster_size       | <span class="number">2</span>                                    |
+| wsrep_cluster_state_uuid | <span class="number">77</span>cb307c-f93e<span class="number">-11e8</span><span class="number">-9433</span><span class="number">-260</span>dd7fec691 |
+| wsrep_cluster_status     | Primary                              |
++--------------------------+--------------------------------------+
+<span class="number">5</span> rows <span class="keyword">in</span> set (<span class="number">0.00</span> sec)
+</code></pre>
+<ul>
+<li>[x]集群突发事件重启</li>
+</ul>
+<pre><code class="python"><span class="comment">#查看mysql还有哪个活着可以通过连接数据查看。</span>
+如果都挂了。
+find / -name grastate.dat 查看dat文件在哪，然后查看哪个是<span class="number">1</span>
+如果都是<span class="number">0.</span>那么将一台safe_to_bootstrap:的值修改为<span class="number">1</span>；
+然后按照，启动第一个节点的命令去启动。第二个节点则以启动第二个节点的命令去启动。
+停止pxc集群目前此版本还没有找到好的命令只能通过
+//查看mysql的进程ps -aux|grep mysql
+必要时删除进程 kill <span class="number">-9</span> pid(mysql)
+[root@pxc_mysql_17 ~]<span class="comment"># find / -name grastate.dat</span>
+/usr/local/Percona-XtraDB-Cluster<span class="number">-5.7</span><span class="number">.23</span>-rel23<span class="number">-31.31</span><span class="number">.2</span>.Linux.x86_64.ssl101/data/grastate.dat
+[root@pxc_mysql_17 ~]<span class="comment"># find /usr/local/Percona-XtraDB-Cluster-5.7.23-rel23-31.31.2.Linux.x86_64.ssl101/data/grastate.dat^C</span>
+[root@pxc_mysql_17 ~]<span class="comment"># more /usr/local/Percona-XtraDB-Cluster-5.7.23-rel23-31.31.2.Linux.x86_64.ssl101/data/grastate.dat</span>
+<span class="comment"># GALERA saved state</span>
+version: <span class="number">2.1</span>
+uuid:    <span class="number">77</span>cb307c-f93e<span class="number">-11e8</span><span class="number">-9433</span><span class="number">-260</span>dd7fec691
+seqno:   <span class="number">-1</span>
+safe_to_bootstrap: <span class="number">0</span>
+</code></pre>
+</li>
+</ul>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/pxc5-7-lixian/">pxc5.7_lixian</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos7/">centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-linux_openssl_openssh" class="article article-type-post" itemscope itemprop="blogPost">
   
