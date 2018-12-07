@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.songxiaolang.com/"/>
-  <updated>2018-12-07T05:20:51.140Z</updated>
+  <updated>2018-12-07T05:41:46.065Z</updated>
   <id>http://www.songxiaolang.com/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何通过QQ聊天获取对方ip</title>
+    <link href="http://www.songxiaolang.com/2018/12/07/root_login/"/>
+    <id>http://www.songxiaolang.com/2018/12/07/root_login/</id>
+    <published>2018-12-07T05:41:29.000Z</published>
+    <updated>2018-12-07T05:41:46.065Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Linux下允许或禁止root用户远程登录的方法&quot;&gt;&lt;a href=&quot;#Linux下允许或禁止root用户远程登录的方法&quot; class=&quot;headerlink&quot; title=&quot;Linux下允许或禁止root用户远程登录的方法&quot;&gt;&lt;/a&gt;Linux下允许或禁止roo
+    
+    </summary>
+    
+      <category term="login" scheme="http://www.songxiaolang.com/categories/login/"/>
+    
+    
+      <category term="Linux" scheme="http://www.songxiaolang.com/tags/Linux/"/>
+    
+      <category term="root" scheme="http://www.songxiaolang.com/tags/root/"/>
+    
+  </entry>
   
   <entry>
     <title>pxc5.7离线安装</title>
